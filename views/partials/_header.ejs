@@ -10,20 +10,22 @@
     <a class="nav-item nav-link" href="/home/my_items">MY ITEMS</a>
     <a class="nav-item nav-link" href="/home/saved_posts">SAVED POSTS</a>
   </nav>
-    <div>
+    <!-- <div>
       <a class ="btn btn-primary" href="/login" >Login</a>
       <a class ="btn btn-primary" href="/register">Register</a>
-    </div>
-    <!-- <% if (true) { %>
-      <form action="/logout" method="POST" style="margin:150">
-        <label for="username" style = "font-size: 16px">Logged in as: <%=  %>!</label>
-        <button type="submit" class="btn btn-danger" style="display: inline-block ; padding: 4px 5px">Logout</button>
-      </form>
-    <% } else { %> -->
-      <!-- <div>
-        <a class ="btn btn-primary" href="/login" >Login</a>
-        <a class ="btn btn-primary" href="/register">Register</a>
-      </div> -->
-      <!-- <% } %> -->
+    </div> -->
+
+     <% if(user){ %>
+      <%=  `Logged in As: ` + user %>
+    <form action="/logout" method="POST">
+     <button type="submit" class="btn btn-dark btn-sm">Sign-Out</button>
+    </form>
+    <% } else { %>
+        <div class="navbar-nav">
+          <a class="nav-item nav-link" href="/login">Login</a>
+          <a class="nav-item nav-link" href="/register">Register</a>
+        </div>
+    <% } %>
+
   </nav>
 </header>
