@@ -1,15 +1,9 @@
-/*
- * All routes for Users are defined here
- * Since this file is loaded in server.js into api/users,
- *   these routes are mounted onto /users
- * See: https://expressjs.com/en/guide/using-middleware.html#middleware.router
- */
-
 const express = require('express');
 const router  = express.Router();
 
 module.exports = (db) => {
-  router.get("/", (req, res) => {
+  router.post("/", (req, res) => {
+    console.log("registration works")
     db.query(`SELECT * FROM users;`)
       .then(data => {
         const users = data.rows;
@@ -20,6 +14,10 @@ module.exports = (db) => {
           .status(500)
           .json({ error: err.message });
       });
+  });
+
+  router.get("/", (req, res) => {
+    res.render('registration');
   });
 
   return router;
