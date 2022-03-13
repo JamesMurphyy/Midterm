@@ -32,6 +32,7 @@ app.use(
 );
 
 app.use(express.static("public"));
+app.use(express.static("images"));
 
 // Separated Routes for each Resource
 // Note: Feel free to replace the example routes below with your own
@@ -51,6 +52,23 @@ app.use("/api/widgets", widgetsRoutes(db));
 app.get("/", (req, res) => {
   res.render("index");
 });
+
+///////////////////////
+
+app.get("/home", (req, res) => {
+  res.redirect("/");
+});
+
+
+app.get("/login", (req, res) => {
+  res.render('login');
+});
+
+app.get("/register", (req, res) => {
+  res.render('registration');
+});
+
+///////////////
 
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
