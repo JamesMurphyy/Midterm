@@ -4,14 +4,14 @@ DROP TABLE IF EXISTS favourites CASCADE;
 DROP TABLE IF EXISTS messages CASCADE;
 
 CREATE TABLE users (
-  id PRIMARY KEY NOT NULL,
+  id SERIAL PRIMARY KEY NOT NULL,
   name VARCHAR(255) NOT NULL,
   email VARCHAR(255) NOT NULL,
   password VARCHAR(255) NOT NULL
 );
 
 CREATE TABLE posts (
-  id PRIMARY KEY NOT NULL,
+  id SERIAL PRIMARY KEY NOT NULL,
   vendor_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
 
   title VARCHAR(255) NOT NULL,
@@ -26,13 +26,13 @@ CREATE TABLE posts (
 );
 
 CREATE TABLE favourites (
-  id PRIMARY KEY NOT NULL,
+  id SERIAL PRIMARY KEY NOT NULL,
   user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
   post_id INTEGER REFERENCES posts(id) ON DELETE CASCADE,
 );
 
-CREATE TABLE messages( -- Each message will have one response
-  id PRIMARY KEY NOT NULL,
+CREATE TABLE messages ( -- Each message will have one response
+  id SERIAL PRIMARY KEY NOT NULL,
   buyer_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
   post_id INTEGER REFERENCES posts(id) ON DELETE CASCADE,
   message TEXT,
