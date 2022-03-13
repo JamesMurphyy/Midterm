@@ -2,7 +2,9 @@
 require("dotenv").config();
 
 // Web server config
-const PORT = process.env.PORT || 8084;
+
+const PORT = process.env.PORT || 8085;
+
 const sassMiddleware = require("./lib/sass-middleware");
 const express = require("express");
 const app = express();
@@ -40,6 +42,7 @@ const usersRoutes = require("./routes/users");
 const widgetsRoutes = require("./routes/widgets");
 const registrationRoutes = require("./routes/registration");
 const loginRoutes = require("./routes/login");
+
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
 app.use("/api/users", usersRoutes(db));
@@ -56,13 +59,9 @@ app.get("/", (req, res) => {
   res.render("index");
 });
 
-/////////////////////// ADD POST/logout under here.
-
 app.get("/home", (req, res) => {
   res.redirect("/");
 });
-
-///////////////
 
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
