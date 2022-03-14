@@ -13,22 +13,18 @@ module.exports = (db) => {
       .catch((err) => console.log(err.message));
   };
 
-  // const login = function (email, password) {
-  //   return getUserWithEmail(email)
-  //     .then(user => {
-  //       if (bcrypt.compareSync(password, user.password)) {
-  //         return user;
-  //       }
-  //       return 'null';
-  //     })
-  //     .catch(err => res.json(err));
-  // };
-
+  // router.get("/", (req, res) => {
+  //   const user = req.session.user;
+  //   const templateVars = {
+  //     user: user,
+  //   };
+  //   res.render('login', templateVars);
+  // });
   router.get("/", (req, res) => {
-    const user = req.session.userId;
+    const userId = req.session.userId;
     let errMsg = null;
-    const templateVars = { user: user, errMsg };
-    if (!user) {
+    const templateVars = { user: userId, errMsg };
+    if (!userId) {
       return res.render("login", templateVars);
     }
     res.redirect('/login');
@@ -70,7 +66,7 @@ module.exports = (db) => {
           res.render("login", templateVars);
         }
         // set cookie for user and redirect to login page
-        req.session.userId = userId;
+        req.session.userId = user.Id;
         return res.redirect('/');
       })
       // .catch((err) => console.log(err.message));

@@ -14,15 +14,26 @@
 </head>
 <%- include('partials/_header') %>
 <body>
+  <container class="search">
+    <div style="align-items: center;"><form method="GET" action="/search" id="filter-form" style="display: flex; flex-direction: column; justify-content: center;">
+      <label>Price Filter</label>
+      <label>Minimum Price</label>
+      <input type="number" name="minPrice" id="min-price"></input>
+      <label>Maximum Price</label>
+      <input type="number" name="maxPrice" id="max-price"></input>
+      <button type="submit" value="submit" id="search-submit">Filter</button>
+    </form></div>
+
+  </container>
   <div class="item-grid"></div>
-  <% for (let post of posts) { %>
-    <div class="item"> <p> <%= post.title %></p><p> <%= post.description %></p><img src="<%= post.image_url %>" />
-   <footer><p><%= ("$" + post.price / 100) %></p></footer></div>
+    <% for (let post of posts) { %>
+      <div class="item"> <p> <%= post.title %></p><p> <%= post.description %></p><img src="<%= post.photo_url %>" />
+        <footer><p><%= ("$" + post.price / 100) %></p></footer></div>
     <% } %>
-    </div>
+  </div>
   <footer>
-    <p>Copyright &copy; <script> document.write(new Date().getFullYear()); </script>, Platform <Buy>
-    <Sell></Sell></p>
+    <p>Copyright &copy; <script> document.write(new Date().getFullYear()); </script>, Platform</p>
+
   </footer>
 </body>
 
