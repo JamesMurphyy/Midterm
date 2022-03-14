@@ -37,20 +37,20 @@ module.exports = (db) => {
   router.post('/', (req, res) => {
 
     // access email and pass from within req.body, validate
-    const { email, password } = req.body;
     let errMsg = '';
-    if (!email || !password) {
-      // return res.status(400).send('Error: need email and password');
-      errMsg = 'Error: Enter Email and Password';
-      const templateVars = { errMsg };
-      return res.render("login", templateVars);
+    if (email === '' || password === '') {
+      return res.status(400).send('Error: need email and password');
+      // errMsg = 'Error: Enter Email and Password';
+      // const templateVars = { errMsg };
+      // return res.render("login", templateVars);
     }
+    const { email, password } = req.body;
 
     // check if cookie is set, if so, redirect, to home page '/'
-    const { userId } = req.session;
-    if (!userId) {
-      return res.redirect('/login');
-    }
+    // const { userId } = req.session;
+    // if (!userId) {
+    //   return res.redirect('/login');
+    // }
 
     // check if email exists in database => login
     getUserWithEmail(email)
@@ -71,37 +71,10 @@ module.exports = (db) => {
         }
         // set cookie for user and redirect to login page
         req.session.userId = userId;
-        return res.redirect("/login");
+        return res.redirect('/');
       })
       // .catch((err) => console.log(err.message));
       .catch(err => res.json(err));
   });
   return router;
 };
-
-
-//under post, grab the req.body --> contains username / password
-// if user/pass exists, log in
-
-// else return Error
-
-// --------------------------------
-// module.exports = (db) => {
-//   router.post("/", (req, res) => {
-//     console.log(req.body)
-//     db.query(`SELECT * FROM users;`)
-//       .then(data => {
-//         const users = data.rows;
-//         res.json({ users });
-//       })
-//       .catch(err => {
-//         res
-//           .status(500)
-//           .json({ error: err.message });
-//       });
-//   });
-//   router.get("/", (req, res) => {
-//     res.render('login');
-//   });
-//   return router;
-// };
