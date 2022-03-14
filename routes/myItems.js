@@ -33,7 +33,7 @@ module.exports = (db) => {
     }
     return addPosts({...req.body, vendor_id: user})
       .then(Posts => {
-        res.redirect('/');
+        res.redirect('/myItems');
       })
       .catch(e => {
         console.error(e);
@@ -41,7 +41,7 @@ module.exports = (db) => {
       });
   });
 
-  const sqlQuery = `SELECT * FROM posts WHERE id = $1;`;
+  const sqlQuery = `SELECT * FROM posts WHERE vendor_id = $1;`;
   router.get("/", (req, res) => {
     const user = req.session.user;
     console.log(user)

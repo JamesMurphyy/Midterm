@@ -25,14 +25,12 @@
     </form></div>
 
   </container>
-
   <div class="item-grid"></div>
-  <% for (let post of posts) { %>
-    <div class="item"> <p> <%= post.title %></p><p> <%= post.description %></p><img src="<%= post.photo_url %>" />
-   <footer><p><%= ("$" + post.price / 100) %></p></footer></div>
+    <% for (let post of posts) { %>
+      <div class="item"> <p> <%= post.title %></p><p> <%= post.description %></p><img src="<%= post.photo_url %>" />
+        <footer><p><%= ("$" + post.price / 100) %></p></footer></div>
     <% } %>
-    </div>
-
+  </div>
   <footer>
     <p>Copyright &copy; <script> document.write(new Date().getFullYear()); </script>, Platform</p>
 
