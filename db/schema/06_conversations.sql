@@ -1,0 +1,8 @@
+DROP TABLE IF EXISTS conversations CASCADE;
+
+
+CREATE TABLE conversations (
+  id SERIAL PRIMARY KEY NOT NULL,
+  from_user INTEGER REFERENCES users(id) NOT NULL,
+  post_id INTEGER REFERENCES posts(id) NOT NULL
+);
