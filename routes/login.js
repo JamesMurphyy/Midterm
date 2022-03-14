@@ -44,11 +44,13 @@ module.exports = (db) => {
 
     return getUserWithEmail(email)
     .then(user => {
-
       if (bcrypt.compareSync(password, user.password)) {
         return user;
       }
       return null;
+    })
+    .catch((err) => {
+      console.log(err.message);
     });
   }
   router.post('/', (req, res) => {

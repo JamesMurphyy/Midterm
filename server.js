@@ -3,7 +3,7 @@ require("dotenv").config();
 
 // Web server config
 
-const PORT = process.env.PORT || 8085;
+const PORT = process.env.PORT || 8080;
 
 const sassMiddleware = require("./lib/sass-middleware");
 const express = require("express");
@@ -70,6 +70,7 @@ app.get("/", (req, res) => {db.query(sqlQuery)
     user: user,
     posts: data.rows
   };
+  
   res.render("index", templateVars);
   });
 
