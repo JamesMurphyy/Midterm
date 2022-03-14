@@ -23,7 +23,7 @@ app.use(morgan("dev"));
 
 app.use(cookieSession({
   name: "session",
-  keys: ["a","d"]
+  keys: ["a", "d"]
 }));
 
 app.set("view engine", "ejs");
@@ -63,17 +63,17 @@ app.use("/logout", logoutRoutes(db));
 // Warning: avoid creating more routes in this file!
 // Separate them into separate routes files (see above).
 const sqlQuery = "SELECT * FROM posts;";
-app.get("/", (req, res) => {db.query(sqlQuery)
-  .then(data => {
-  const user = req.session.userId;
-  const templateVars = {
-    user: user,
-    posts: data.rows
-  };
-  
-  res.render("index", templateVars);
-  });
-
+app.get("/", (req, res) => {
+  db.query(sqlQuery)
+    .then(data => {
+      const user = req.session.userId;
+      const templateVars = {
+        user: user,
+        posts: data.rows
+      };
+      res.render("index", templateVars);
+    })
+    .catch(err => res.json(err));
 });
 
 app.get("/home", (req, res) => {
