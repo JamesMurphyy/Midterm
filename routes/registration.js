@@ -8,7 +8,7 @@ module.exports = (db) => {
     return db.query(`INSERT INTO users(name, email, password) VALUES ($1, $2, $3) RETURNING *;`, values)
       .then((result) => {
         console.log(result.rows);
-        return (result.rows);
+        return (result.rows[0]);
       })
       .catch((err) => {
         console.log(err.message);
@@ -28,7 +28,7 @@ module.exports = (db) => {
         res.send({error: "error"});
         return;
       }
-      req.session.userId = returnedUser.id;
+      req.session.userId = ({user: {name: user.name, email: user.email, id: user.id}});
 
       console.log("wkwkwkwk", returnedUser)
       res.redirect("/")
