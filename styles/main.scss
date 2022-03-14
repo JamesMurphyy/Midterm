@@ -8,7 +8,7 @@ body {
   padding: 0;
 
 
-  font-family: 'Times New Roman', Times, serif;
+  font-family:Verdana, Geneva, Tahoma;
   background-color: #f1f1f1;;
 
   // background: rgb(163, 208, 219);
@@ -25,24 +25,45 @@ body {
 
 header {
   display: flex;
-  align-content: center;
-  justify-content: center;
+  align-content: flex-start;
+  justify-content: space-between;
 
-  background-color: black;
+
+  background-color:
+  #f7ecda;
   color: #fff;
   padding: 10px;
 }
 img {
-  height: 10px;
-  width: 20px;
+  display: flex;
+
+  height: 50px;
+  width: 135px;
+}
+
+nav.NavContainer{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+div.options {
+  display:flex;
+  align-items: flex-start;
+}
+
+a.nav-item.nav-link {
+  padding-left: 25px;
+  padding-right: 25px;
 }
 
 header a {
-  justify-content: center;
   justify-content: space-between;
-  align-content: flex-end;
-
-  color: white;
+  align-content: flex-start;
+  color: black;
+  text-decoration: none;
 }
 
 header h1 {
@@ -88,4 +109,5 @@ footer {
   /* position: fixed;
   z-index: 1; */
 }
+
 
