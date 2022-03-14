@@ -64,7 +64,7 @@ module.exports = (db) => {
         return;
       }
       console.log("logging user", user);
-      req.session.userId = ({user: {name: user.name, email: user.email, id: user.id}});
+      req.session.user = ({name: user.name, email: user.email, id: user.id});
       res.redirect('/')
       // res.send({user: {name: user.name, email: user.email, id: user.id}})
     })
@@ -75,7 +75,7 @@ module.exports = (db) => {
   });
 
   router.get("/", (req, res) => {
-    const user = req.session.userId;
+    const user = req.session.user;
     const templateVars = {
     user: user,
   };

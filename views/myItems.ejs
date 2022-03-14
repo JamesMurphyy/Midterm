@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Home Page</title>
+
+  <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
+  <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/main.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+
+  <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
+  <script type="text/javascript" src="/scripts/app.js"></script>
+</head>
+<%- include('partials/_header') %>
+<main style="margin: 1em;">
+  <h3>Add Posts</h3>
+  <form class="form-inline" action="/myItems" method="POST">
+    <div class="form-group mb-2">
+
+      <label for="text">title</label>
+      <input class="form-control" type="text" name="title" style="width: 300px; margin: 1em">
+
+
+      <label for="category">Choose a category:</label>
+      <select name="category">
+        <option value="sport">Sport</option>
+        <option value="fashion">Fashion</option>
+        <option value="electronics">Electronics</option>
+      </select>
+
+
+      <label for="price">price</label>
+      <input class="form-control" name="price" style="width: 300px; margin: 1em">
+
+
+      <label for="item_description">description</label>
+      <input class="form-control" type="text" name="item_description" style="width: 300px; margin: 1em">
+
+
+      <label for="photo_url">photo_url</label>
+      <input class="form-control" type="text" name="photo_url" style="width: 300px; margin: 1em">
+
+
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+  </form>
+</main>
+  <footer>
+    <p>Copyright &copy; <script> document.write(new Date().getFullYear()); </script>, Platform <Buy>
+    <Sell></Sell></p>
+  </footer>
+</body>
+
+</html>
