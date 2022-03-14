@@ -3,7 +3,7 @@ require("dotenv").config();
 
 // Web server config
 
-const PORT = process.env.PORT || 8086;
+const PORT = process.env.PORT || 8080;
 
 const sassMiddleware = require("./lib/sass-middleware");
 const express = require("express");
@@ -62,15 +62,17 @@ app.use("/logout", logoutRoutes(db));
 // Home page
 // Warning: avoid creating more routes in this file!
 // Separate them into separate routes files (see above).
-
-app.get("/", (req, res) => {
-  console.log(req.session);
+const sqlQuery = "SELECT * FROM posts;";
+app.get("/", (req, res) => {db.query(sqlQuery)
+  .then(data => {
   const user = req.session.userId;
-  console.log("text", user);
   const templateVars = {
     user: user,
+    posts: data.rows
   };
   res.render("index", templateVars);
+  });
+
 });
 
 app.get("/home", (req, res) => {

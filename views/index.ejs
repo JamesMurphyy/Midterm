@@ -14,14 +14,16 @@
 </head>
 <%- include('partials/_header') %>
 <body>
-  <main>
-    <article>
-      <h2>TITLE HEADING</h2>
-      <h3>DESCRIPTION</h3>
-      <p>some content</p>
-      <p>some content thingythingymajig</p>
-    </article>
-  </main>
+  <% for (let post of posts) { %>
+    <p> <%= post.vendor_id %></p>
+    <p> <%= post.title %></p>
+    <p> <%= post.item_description %></p>
+    <p> <%= post.price %></p>
+    <p> <%= post.created_at %></p>
+    <p> <%= post.city %></p>
+    <p> <%= post.active %></p>
+
+  <% } %>
   <footer>
     <p>Copyright &copy; <script> document.write(new Date().getFullYear()); </script>, Platform <Buy>
     <Sell></Sell></p>
