@@ -2,6 +2,7 @@ const express = require('express');
 const { get } = require('express/lib/response');
 const router  = express.Router();
 const bcrypt = require('bcrypt');
+const users = require('./users');
 
 // module.exports = (db) => {
 //   router.post("/", (req, res) => {
@@ -32,7 +33,7 @@ module.exports = (db) => {
     return db
     .query(`SELECT * FROM users WHERE email = $1;`, [email])
     .then((result) => {
-      // console.log(result.rows[0]);
+      console.log("test:", result.rows[0]);
       return result.rows[0];
     })
     .catch((err) => {
@@ -46,6 +47,7 @@ module.exports = (db) => {
     .then(user => {
 
       if (bcrypt.compareSync(password, user.password)) {
+        console.log("user:", user);
         return user;
       }
       return null;

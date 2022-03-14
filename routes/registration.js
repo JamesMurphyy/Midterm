@@ -7,11 +7,11 @@ module.exports = (db) => {
     const values = [user.name, user.email, user.password];
     return db.query(`INSERT INTO users(name, email, password) VALUES ($1, $2, $3) RETURNING *;`, values)
       .then((result) => {
-        console.log(result.rows);
+        console.log("lol:", result.rows[0]);
         return (result.rows[0]);
       })
       .catch((err) => {
-        console.log(err.message);
+        console.log("error:", err.message);
       });
   };
 
