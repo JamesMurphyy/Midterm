@@ -62,7 +62,7 @@ module.exports = (db) => {
         return;
       }
       console.log("logging user", user);
-      req.session.userId = user.id;
+      req.session.userId = ({user: {name: user.name, email: user.email, id: user.id}});
       res.redirect('/')
       // res.send({user: {name: user.name, email: user.email, id: user.id}})
     })
