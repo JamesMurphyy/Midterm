@@ -44,13 +44,11 @@ module.exports = (db) => {
 
     return getUserWithEmail(email)
     .then(user => {
+
       if (bcrypt.compareSync(password, user.password)) {
         return user;
       }
       return null;
-    })
-    .catch((err) => {
-      console.log(err.message);
     });
   }
   router.post('/', (req, res) => {
@@ -64,7 +62,7 @@ module.exports = (db) => {
         return;
       }
       console.log("logging user", user);
-      req.session.userId = user.id;
+      req.session.userId = ({user: {name: user.name, email: user.email, id: user.id}});
       res.redirect('/')
       // res.send({user: {name: user.name, email: user.email, id: user.id}})
     })
