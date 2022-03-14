@@ -4,27 +4,25 @@ const router  = express.Router();
 module.exports = (db) => {
 
   router.post('/', (req, res) => {
-    const userId = req.session.userId;
-    const addProperty = function(property) {
+    const user = req.session.user;
+    console.log(req.session.user, "llllllllllll")
+    const addPosts = function(posts) {
       const values = [
-        property.title, 
-        property.vendor_id,
-        property.item_description, 
-        Number(property.price), 
-        property.photo_url, 
-        property.created_at
-        property.street, 
-        property.country, 
-        property.city, 
-        property.province, 
-        property.post_code
+        user.id,
+        posts.title, 
+        posts.category,
+        posts.item_description, 
+        Number(posts.price), 
+        posts.photo_url 
       ];
+      console.log(values)
       const query = `
-      INSERT INTO properties (owner_id, title, description, number_of_bedrooms, number_of_bathrooms, parking_spaces, cost_per_night, thumbnail_photo_url, cover_photo_url, street, country, city, province, post_code)
-      VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14)
+      INSERT INTO posts (vendor_id, title,  category, item_description, price, photo_url )
+      VALUES ($1, $2, $3, $4, $5, $6)
       RETURNING *;`;
     
-      return pool.query(query, values)
+      return db
+      .query(query, values)
       .then((result) => {
         console.log(result.rows);
         return (result.rows);
@@ -33,9 +31,9 @@ module.exports = (db) => {
         console.log(err.message);
       });
     }
-    return addProperty({...req.body, owner_id: userId})
-      .then(property => {
-        res.send(property);
+    return addPosts({...req.body, vendor_id: user})
+      .then(Posts => {
+        res.send(Posts);
       })
       .catch(e => {
         console.error(e);
@@ -47,7 +45,7 @@ module.exports = (db) => {
 
 
   router.get("/", (req, res) => {
-    const user = req.session.userId;
+    const user = req.session.user;
     const templateVars = {
     user: user,
   };

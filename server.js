@@ -68,7 +68,7 @@ app.use("/myItems", myItemsRoutes(db));
 const sqlQuery = "SELECT * FROM posts;";
 app.get("/", (req, res) => {db.query(sqlQuery)
   .then(data => {
-  const user = req.session.userId;
+  const user = req.session.user;
   const templateVars = {
     user: user,
     posts: data.rows

@@ -28,9 +28,10 @@ module.exports = (db) => {
         res.send({error: "error"});
         return;
       }
-      req.session.userId = ({user: {name: user.name, email: user.email, id: user.id}});
+      req.session.user = ({name: user.name, email: user.email, id: returnedUser.id});
 
       console.log("wkwkwkwk", returnedUser)
+      console.log("llllllllllllllll", req.session)
       res.redirect("/")
 
     })
@@ -41,7 +42,7 @@ module.exports = (db) => {
   });
 
   router.get("/", (req, res) => {
-    const user = req.session.userId;
+    const user = req.session.user;
     const templateVars = {
     user: user,
   };
