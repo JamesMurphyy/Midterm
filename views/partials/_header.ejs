@@ -3,18 +3,18 @@
     <a href="/home"><img class="logo" src="Capture.JPG" > </img></a>
     <div class="options">
     <a class="nav-item nav-link" href="/home">Home</a>
-    <a class="nav-item nav-link" href="/myItems">My Items</a>
     <a class="nav-item nav-link" href="/favourites">Favourites</a></div>
     <!-- <div>
       <a class ="btn btn-primary" href="/login" >Login</a>
       <a class ="btn btn-primary" href="/register">Register</a>
     </div> -->
-
-     <% if(user){ %>
+    
+    <% if(user){ %>
+      <a class="nav-item nav-link" href="/myItems">My Items</a>
       <%=  `Logged in As: ` + user['name'] %>
-    <form action="/logout" method="POST">
-     <button type="submit" class="btn btn-dark btn-sm">Sign-Out</button>
-    </form>
+      <form action="/logout" method="POST">
+        <button type="submit" class="btn btn-dark btn-sm">Sign-Out</button>
+      </form>
     <% } else { %>
         <div class="navbar-nav">
           <a class="nav-item nav-link" href="/login">Login</a>

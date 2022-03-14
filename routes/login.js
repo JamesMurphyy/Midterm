@@ -60,7 +60,7 @@ module.exports = (db) => {
     .then(user => {
       console.log(user)
       if (!user) {
-        res.send({error: "error"});
+        res.status(401).send(`<html><body>Sorry! Please <a href="/login">login</a> or <a href="/register">register</a> to access this page.</body></html>\n`);
         return;
       }
       console.log("logging user", user);
@@ -70,7 +70,7 @@ module.exports = (db) => {
     })
     .catch(e => {
       console.log(e)
-      res.send(e)
+      res.status(401).send(`<html><body>Sorry! Please <a href="/login">login</a> or <a href="/register">register</a> to access this page.</body></html>\n`);
     });
   });
 
