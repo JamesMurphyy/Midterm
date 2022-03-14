@@ -9,7 +9,7 @@ CREATE TABLE posts (
   item_description VARCHAR(255) NOT NULL,
   price INTEGER NOT NULL,
   photo_url VARCHAR(255) NOT NULL,
-  created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP NOT NULL,
+  created_at TEXT,
 
   city VARCHAR(255) NOT NULL,
 

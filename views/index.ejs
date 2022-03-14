@@ -14,16 +14,12 @@
 </head>
 <%- include('partials/_header') %>
 <body>
+  <div class="item-grid"></div>
   <% for (let post of posts) { %>
-    <p> <%= post.vendor_id %></p>
-    <p> <%= post.title %></p>
-    <p> <%= post.item_description %></p>
-    <p> <%= post.price %></p>
-    <p> <%= post.created_at %></p>
-    <p> <%= post.city %></p>
-    <p> <%= post.active %></p>
-
-  <% } %>
+    <div class="item"> <p> <%= post.title %></p><p> <%= post.description %></p><img src="<%= post.image_url %>" />
+   <footer><p><%= ("$" + post.price / 100) %></p></footer></div>
+    <% } %>
+    </div>
   <footer>
     <p>Copyright &copy; <script> document.write(new Date().getFullYear()); </script>, Platform <Buy>
     <Sell></Sell></p>
@@ -31,3 +27,7 @@
 </body>
 
 </html>
+
+
+
+
