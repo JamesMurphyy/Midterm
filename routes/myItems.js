@@ -48,7 +48,6 @@ module.exports = (db) => {
   const sqlQuery = `SELECT * FROM posts WHERE vendor_id = $1 ORDER BY created_at DESC;`;
   router.get("/", (req, res) => {
     const user = req.session.user;
-    console.log(user)
     db
     .query(sqlQuery, [user.id])
     .then(data => {
@@ -60,19 +59,58 @@ module.exports = (db) => {
 
     res.render("myItems", templateVars);
     });
+<<<<<<< HEAD
+
+  });
+=======
+>>>>>>> bf3c98bdbde4b092da3441f6bc68a9672661e168
 
   });
 
-
-  // router.get("/", (req, res) => {
+  // router.post('/:postId/delete' , (req, res) => {
+  //   const postId = req.params.postId
   //   const user = req.session.user;
-  //   const templateVars = {
-  //   user: user,
-  // };
-  //   res.render('myItems', templateVars);
-  // });
+  //   console.log("ppppppppppppppppppppppppppppppppp", user)
+  //   console.log("ppppppppppppppppppppppppppppppppp", postId)
 
+  //   const query = `SELECT * FROM posts WHERE vendor_id = $1 ORDER BY created_at DESC;`
+  //       return db
+  //       .query(query, [user.id])
+  //       .then((result) => {
+  //         for (const row of result.rows) {
+  //           console.log("test:", row.id)
+  //           console.log("test2", Number(postId))
+  //           if (row.id === Number(postId)) {
+  //             console.log(row, "testsssss")
+  //             delete row
+  //             res.redirect('/myItems')
+  //           }
+  //         }
+  //       })
+    // delete post[postId]
+  // })
 
+<<<<<<< HEAD
+
+=======
+  router.post('/:postId/delete' , (req, res) => {
+    const postId = req.params.postId
+    const query = `DELETE FROM posts WHERE posts.id = $1 RETURNING *;`
+      return db
+      .query(query, [postId])
+      .then((result) => {
+        console.log("delete post", result.rows[0]);
+        res.redirect('/myItems')
+      })
+  })
+  
+  router.post('/:postId/edit' , (req, res) => {
+    const postId = req.params.postId
+      .then((result) => {
+        res.redirect('/edit')
+      })
+  })
+>>>>>>> bf3c98bdbde4b092da3441f6bc68a9672661e168
 
   return router;
 };
