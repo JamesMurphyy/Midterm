@@ -9,18 +9,18 @@ module.exports = (db) => {
     const addPosts = function(posts) {
       const values = [
         user.id,
-        posts.title, 
+        posts.title,
         posts.category,
-        posts.item_description, 
-        Number(posts.price), 
-        posts.photo_url 
+        posts.item_description,
+        Number(posts.price),
+        posts.photo_url
       ];
-      if (values.id === '' && values.title === '' && values.category === '' && values.item_description === '' && values.price === '' && !values.photo_url === '') {
+      // if (values.id === '' && values.title === '' && values.category === '' && values.item_description === '' && values.price === '' && !values.photo_url === '') {
         const query = `
         INSERT INTO posts (vendor_id, title,  category, item_description, price, photo_url )
         VALUES ($1, $2, $3, $4, $5, $6)
         RETURNING *;`;
-      
+
         return db
         .query(query, values)
         .then((result) => {
@@ -30,9 +30,9 @@ module.exports = (db) => {
         .catch((err) => {
           console.log(err.message);
         });
-      } else {
-        res.status(401).send(`<html><body>Sorry! Please <a href="/myItems">try again.</a>All of the fields must be filled out to add a post.</body></html>\n`);
-      }
+      // } else {
+      //   res.status(401).send(`<html><body>Sorry! Please <a href="/myItems">try again.</a>All of the fields must be filled out to add a post.</body></html>\n`);
+      // }
 
     }
     return addPosts({...req.body, vendor_id: user})
@@ -57,10 +57,10 @@ module.exports = (db) => {
       user: user,
       posts: data.rows
     };
-  
+
     res.render("myItems", templateVars);
     });
-  
+
   });
 
 
@@ -72,7 +72,7 @@ module.exports = (db) => {
   //   res.render('myItems', templateVars);
   // });
 
-  
+
 
   return router;
 };
