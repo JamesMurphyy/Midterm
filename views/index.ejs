@@ -1,44 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-  <title>Home Page</title>
+  <head>
+    <title>Home Page</title>
 
-  <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
-  <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
-  <link rel="stylesheet" href="/styles/main.css" type="text/css" />
-  <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+    <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
+    <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/main.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
 
-  <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
-  <script type="text/javascript" src="/scripts/app.js"></script>
-</head>
-<%- include('partials/_header') %>
-<body>
-  <container class="search">
-    <div style="align-items: center;"><form method="GET" action="/search" id="filter-form" style="display: flex; flex-direction: column; justify-content: center;">
-      <label>Price Filter</label>
-      <label>Minimum Price</label>
-      <input type="number" name="minPrice" id="min-price"></input>
-      <label>Maximum Price</label>
-      <input type="number" name="maxPrice" id="max-price"></input>
-      <button type="submit" value="submit" id="search-submit">Filter</button>
-    </form></div>
+    <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
+    <script type="text/javascript" src="/scripts/app.js"></script>
+  </head>
+  <%- include('partials/_header') %>
 
-  </container>
-  <div class="item-grid"></div>
-    <% for (let post of posts) { %>
-      <div class="item"> <p> <%= post.title %></p><p> <%= post.description %></p><img src="<%= post.photo_url %>" />
-        <footer><p><%= ("$" + post.price / 100) %></p></footer></div>
-    <% } %>
-  </div>
-  <footer>
-    <p>Copyright &copy; <script> document.write(new Date().getFullYear()); </script>, Platform</p>
+    <body>
+      <container class="search">
+        <form method="GET" action="/search" id="filter-form">
+          <h3>
+            <center>Price Filter</center>
+          </h3>
+          <label>Minimum Price</label>
+          <input type="number" name="minPrice" id="min-price"></input>
+          <label>Maximum Price</label>
+          <input type="number" name="maxPrice" id="max-price"></input>
+          <button type="submit" value="submit" id="search-submit">Filter</button>
+        </form>
+      </container>
+      <div class="item-grid">
+        <% for (let post of posts) { %>
+          <div class="item">
+            <p>
+              <%= post.title %>
+            </p>
+            <p>
+              <%= post.description %>
+            </p><img src="<%= post.photo_url %>" />
+            <footer class="item_footer">
+              <p>
+                <%= ("$" + post.price / 100) %>
+              </p>
+            </footer>
+          </div>
+          <% } %>
+      </div>
 
-  </footer>
-</body>
+      <footer class="page_footer">
+        <p>Copyright &copy;
+          <script> document.write(new Date().getFullYear()); </script>, Platform
+        </p>
+      </footer>
+    </body>
 
 </html>
-
-
-
-
