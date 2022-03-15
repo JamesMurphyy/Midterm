@@ -41,7 +41,7 @@ module.exports = (db) => {
       });
   });
 
-  const sqlQuery = `SELECT * FROM posts WHERE vendor_id = $1;`;
+  const sqlQuery = `SELECT * FROM posts WHERE vendor_id = $1 ORDER BY created_at DESC;`;
   router.get("/", (req, res) => {
     const user = req.session.user;
     console.log(user);
