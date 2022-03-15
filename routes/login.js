@@ -32,45 +32,52 @@ module.exports = (db) => {
 
   router.post('/', (req, res) => {
 
-    // access email and pass from within req.body, validate
-    let errMsg = '';
-    if (email === '' || password === '') {
-      return res.status(400).send('Error: need email and password');
-      // errMsg = 'Error: Enter Email and Password';
-      // const templateVars = { errMsg };
-      // return res.render("login", templateVars);
+    .then(user => {
+    console.log(user)
+    if (!user) {
+      res.status(401).send(`<html><body>Sorry! Please <a href="/login">login</a> or <a href="/register">register</a> to access this page.</body></html>\n`);
+      return;
     }
-    const { email, password } = req.body;
-
-    // check if cookie is set, if so, redirect, to home page '/'
-    // const { userId } = req.session;
-    // if (!userId) {
-    //   return res.redirect('/login');
-    // }
-
-    // check if email exists in database => login
-    getUserWithEmail(email)
-      .then(user => {
-        let templateVars = { user: user, errMsg };
-        // if email does NOT exist display error 'emailDOES not Exist'
-        if (!user) {
-          // return res.status(400).send('Error: email does not EXIST');
-          templateVars.errMsg = 'Error: Email does not EXIST';
-          res.render("login", templateVars);
-        }
-        // validate if passwords match
-        const passwordMatch = bcrypt.compareSync(password, user.password);
-        if (!passwordMatch) {
-          // return res.status(400).send('Error: email does not EXIST');
-          templateVars.errMsg = 'Error: Wrong Email or Password';
-          res.render("login", templateVars);
-        }
-        // set cookie for user and redirect to login page
-        req.session.userId = user.Id;
-        return res.redirect('/');
-      })
-      // .catch((err) => console.log(err.message));
-      .catch(err => res.json(err));
+    console.log("logging user", user);
+    req.session.user = ({ name: user.name, email: user.email, id: user.id });
+    res.redirect('/')
+    // res.send({user: {name: user.name, email: user.email, id: user.id}})
+  })
+      .catch(e => {
+        console.log(e)
+        res.status(401).send(`<html><body>Sorry! Username/Password is incorrect! Please  <a href="/login">try again</a> or <a href="/register">register</a></body></html>\n`);
+      });
   });
-  return router;
-};
+
+  // check if cookie is set, if so, redirect, to home page '/'
+  // const { userId } = req.session;
+  // if (!userId) {
+  //   return res.redirect('/login');
+  // }
+
+  // check if email exists in database => login
+//   getUserWithEmail(email)
+//     .then(user => {
+//       let templateVars = { user: user, errMsg };
+//       // if email does NOT exist display error 'emailDOES not Exist'
+//       if (!user) {
+//         // return res.status(400).send('Error: email does not EXIST');
+//         templateVars.errMsg = 'Error: Email does not EXIST';
+//         res.render("login", templateVars);
+//       }
+//       // validate if passwords match
+//       const passwordMatch = bcrypt.compareSync(password, user.password);
+//       if (!passwordMatch) {
+//         // return res.status(400).send('Error: email does not EXIST');
+//         templateVars.errMsg = 'Error: Wrong Email or Password';
+//         res.render("login", templateVars);
+//       }
+//       // set cookie for user and redirect to login page
+//       req.session.userId = user.Id;
+//       return res.redirect('/');
+//     })
+//     // .catch((err) => console.log(err.message));
+//     .catch(err => res.json(err));
+// });
+// return router;
+// };

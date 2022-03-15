@@ -67,6 +67,7 @@ app.use("/myItems", myItemsRoutes(db));
 // Home page
 // Warning: avoid creating more routes in this file!
 // Separate them into separate routes files (see above).
+<<<<<<< HEAD
 const sqlQuery = "SELECT * FROM posts;";
 app.get("/", (req, res) => {
   db.query(sqlQuery)
@@ -79,6 +80,20 @@ app.get("/", (req, res) => {
       res.render("index", templateVars);
     })
     .catch(err => res.json(err));
+=======
+const sqlQuery = "SELECT * FROM posts ORDER BY created_at DESC;";
+app.get("/", (req, res) => {db.query(sqlQuery)
+  .then(data => {
+  const user = req.session.user;
+  const templateVars = {
+    user: user,
+    posts: data.rows
+  };
+
+  res.render("index", templateVars);
+  });
+
+>>>>>>> 08c6352896159d2a66536a283162029c9e01759c
 });
 
 app.get("/home", (req, res) => {
