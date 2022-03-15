@@ -1,0 +1,76 @@
+.test {
+  background-color:rgb(250, 174, 174);
+}
+
+
+.addPost {
+  display:grid;
+  margin-top: 10px;
+}
+.addPostContent {
+  display:flex;
+  margin-top: 10px;
+}
+
+.item {
+  display:flex;
+  margin-top: 10px;
+  display: inline-block;
+
+}
+
+.myItemsButtons {
+  display:flex;
+  flex-direction: row-reverse;
+}
+
+#textbox {
+  padding-bottom: 10px;
+  background-color: beige;
+  margin-top: 10px;
+  padding-right: 10px;
+  border-bottom: solid;
+  padding-left: 10px;
+  padding-top: 20px;
+}
+
+
+#removeButton {
+  display: block;
+  font-size: 10px;
+  width: fit-content;
+  margin-right: 3px;
+}
+#editButton {
+  display: block;
+  font-size: 10px;
+  width: fit-content;
+  margin-right: 3px;
+
+}
+#markAsSold {
+  display: block;
+  font-size: 10px;
+  width: fit-content;
+  margin-right: 3px;
+}
+.postInfo {
+  display: inline-flex;
+  flex-direction: row-reverse;
+}
+#postImg {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+#postDescription {
+  display: flex;
+  flex-direction: row-reverse;
+}
+#postTitle {
+  display: flex;
+  flex-direction: row-reverse;
+  padding-left: 10px;
+  font-size: small;
+}
+

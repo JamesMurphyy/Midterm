@@ -30,8 +30,8 @@ module.exports = (db) => {
       }
       req.session.user = ({name: user.name, email: user.email, id: returnedUser.id});
 
-      console.log("wkwkwkwk", returnedUser)
-      console.log("llllllllllllllll", req.session)
+      // console.log("wkwkwkwk", returnedUser)
+      // console.log("llllllllllllllll", req.session)
       res.redirect("/")
 
     })
