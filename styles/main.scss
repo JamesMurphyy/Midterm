@@ -1,45 +1,59 @@
-body {
-  // display: flex;
-  // justify-content: center;
-  // align-items: center;
-  // min-height: 100vh;
-
-  margin: 0;
-  padding: 0;
-
-
-  font-family:Verdana, Geneva, Tahoma;
-  background-color: #f1f1f1;;
-
-  // background: rgb(163, 208, 219);
-  // background: linear-gradient(
-  //   227deg,
-  //   rgba(163, 208, 219, 1) 0%,
-  //   rgba(163, 176, 219, 1) 20%,
-  //   rgba(163, 173, 219, 1) 34%,
-  //   rgba(163, 219, 208, 1) 59%,
-  //   rgba(163, 208, 219, 1) 74%,
-  //   rgba(163, 208, 219, 1) 100%
-  // );
+* {
+  box-sizing: border-box;
+  // background-color: white;
 }
 
-// header {
-//   display: flex;
-//   align-content: flex-start;
-//   justify-content: space-between;
+header {
+  // display:flex;
+  justify-content: space-evenly;
+  padding: 1em 0;
+  background-color: rgb(87, 175, 251);
+}
 
+.logo{
+  display: inline-block;
+  margin-right: -3em;
+  font-size: 1.25rem;
+  white-space: nowrap;
+  max-width: 10em;
+  background-blend-mode:multiply;
 
-//   background-color:
-//   #f7ecda;
-//   color: #fff;
-//   padding: 10px;
+}
+
+.nav_container{
+    position: relative;
+    display: flex;
+    flex-wrap: nowrap;
+    padding: 0.5rem 1rem;
+    flex-direction: row;
+    // justify-content: space-evenly;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.options{
+  margin-left:-15em;
+}
+
+// .navbar-nav{
+
 // }
 
-main {
-width: 90vw;
-margin: 0 auto;
-padding: 30px 20px;
+body {
+  margin: 0;
+  padding: 0;
+  font-family:Verdana, Geneva, Tahoma;
+  background-color: #d65656;
+  background-blend-mode: color-burn;
+  background-size: cover;
 }
+
+
+// main {
+// width: 90vw;
+// margin: 0 auto;
+// padding: 30px 20px;
+// }
 
 // .item:hover {
 //   box-shadow: rgba(2, 8, 20, 0.1) 0px 0.35em 1.175em, rgba(2, 8, 20, 0.08) 0px 0.175em 0.5em;
@@ -48,3 +62,15 @@ padding: 30px 20px;
 
 // .star-btn:hover {
 //   background-color: gold;
+
+.page_footer {
+  background-color: #333;
+  color: rgb(15, 14, 14);
+  position: relative;
+  display: flex;
+    flex-direction: row;
+    align-items: center;
+  padding: 1em;
+  width: 100%;
+  height: 5em;
+}

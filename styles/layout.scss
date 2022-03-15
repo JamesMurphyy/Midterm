@@ -1,93 +1,159 @@
-// See: https://sass-lang.com/
+// // See: https://sass-lang.com/
 
 body,
 html {
   margin: 0;
 }
-img {
+
+.body-header {
+  background-size:cover;
+  background-color:rgba(194, 179, 159, 0.35);
+  background-blend-mode:multiply;
+  display: grid;
+    justify-items: center;
+  // padding: 0, 0, .5em;
+  margin-bottom: -50px
+}
+
+#description_text {
+  margin-bottom: 3.5em;
   display: flex;
-
-  height: 50px;
-  width: 135px;
+    flex-direction: column;
+    align-items: center;
 }
 
-nav.NavContainer{
-  margin: 0 0.5em 3em;
+.div_filter_form{
   display: flex;
-  align-items: center;
-  justify-content: center;
-  justify-content: space-between;
-  width: 100%;
-}
-
-div.options {
-  display:flex;
-  align-items: flex-start;
-}
-
-a.nav-item.nav-link {
-  padding-left: 25px;
-  padding-right: 25px;
-}
-
-header a {
-  justify-content: space-between;
-  align-content: flex-start;
-  color: black;
-  text-decoration: none;
-}
-
-header h1 {
-  font-size: 48px;
-  margin-bottom: 30px;
-}
-
-header p {
-  font-size: 22px;
-}
-
-container .search{
-  display: flex;
-    flex-direction: row;
     justify-content: center;
 }
-article {
-  background-color: #fff;
-  padding: 20px;
-  margin-bottom: 20px;
-  border-radius: 5px;
-}
-article:last-child {
-  margin-bottom: 0;
-}
-article h3 {
-  margin: 10px 0 25px 0;
-}
-article p {
-  margin-top: 16px;
-  line-height: 24px;
-}
-footer .page_footer{
-  text-align: center;
-  background-color: #333;
-  color: #fff;
-  padding: 20px;
-  position: relative;
-  width: 100%;
-  /* position: fixed;
-  z-index: 1; */
+
+.filter-form{
+  box-sizing: content-box;
+  width: 20em;
+  background-color: brown;
+  border-radius: .5em;
+  box-shadow: -1px 3px 6px rgb(0 0 0 / 12%);
+  display: grid;
+    grid-template-rows: .5fr .5fr .5fr;
+    gap:.25em;
+    justify-items: center;
 }
 
-// .item-grid{
-//   display: grid;
+form input, button{
+  margin:.3em;
+}
+
+.filter-form:hover{
+  box-sizing: content-box;
+  box-shadow: 0em 0em 3em 4px cornsilk;
+  transition-duration: 1s;
+}
+.item-grid{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap:2em;
+  margin: 1em;
+  justify-content: center;
+}
+.item_img{
+  width:10em;
+}
+.item{
+  display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    align-content: stretch;
+}
+
+.item:hover{
+  box-shadow: 0em 0em 4em 0px cornsilk;
+}
+
+// img {
+//   display: flex;
+
+//   height: auto;
+//   width: auto;
+//   // height: 50px;
+//   // width: 135px;
 // }
 
-.item {
-  width:10em;
-  margin: 0.5em ;
-  padding: .5em;
-  border: solid #20381f;
-  border-radius: 10px;
-  background-color: lightblue;
+// nav.NavContainer{
+//   margin: 0 0.5em 3em;
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+//   justify-content: space-between;
+//   width: 100%;
+// }
 
-}
+// div.options {
+//   display:flex;
+//   align-items: flex-start;
+// }
+
+// a.nav-item.nav-link {
+//   padding-left: 25px;
+//   padding-right: 25px;
+// }
+
+// header a {
+//   justify-content: space-between;
+//   align-content: flex-start;
+//   color: black;
+//   text-decoration: none;
+// }
+
+// header h1 {
+//   font-size: 48px;
+//   margin-bottom: 30px;
+// }
+
+// header p {
+//   font-size: 22px;
+// }
+
+// body .search{
+//   display: flex;
+//     flex-direction: row;
+//     justify-content: center;
+// }
+
+// container input{
+//   display:flex;
+//   margin: .5em;
+// }
+
+// article {
+//   background-color: #fff;
+//   padding: 20px;
+//   margin-bottom: 20px;
+//   border-radius: 5px;
+// }
+
+// article:last-child {
+//   margin-bottom: 0;
+// }
+
+// article h3 {
+//   margin: 10px 0 25px 0;
+// }
+
+// article p {
+//   margin-top: 16px;
+//   line-height: 24px;
+// }
+
+// // .item-grid{
+// //   display: grid;
+// // }
+
+// .item {
+//   // width:30%;
+//   margin: 0.5em ;
+//   padding: .5em;
+//   border: solid #20381f;
+//   border-radius: 10px;
+//   background-color: lightblue;
+
+// }
