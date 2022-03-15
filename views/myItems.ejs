@@ -13,6 +13,20 @@
 
   <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
   <script type="text/javascript" src="/scripts/app.js"></script>
+  <script type="text/javascript" src="/scripts/onClickFunctions.js"></script>
+  <script>
+    function makeDELETErequest() {
+      $.ajax({
+        url: 'myItems',
+        type: 'DELETE',
+        success: function (ctl) {
+          $(ctl).parents("p").remove();
+        }
+      })
+    };
+  </script>
+
+
 </head>
 <%- include('partials/_header') %>
 <!-- <main style="margin: 1em;"> -->
@@ -61,10 +75,12 @@
       <div class = "postInfo">
         <p id = "postTitle"> <%= post.title %></p>
         <p id = "postDescription"> <%= post.description %></p>
-        <img id = "postImg" src="<%= post.photo_url %>"/>
+        <!-- <img id = "postImg" src="<%= post.photo_url %>"/> -->
       </div>
           <div class = "myItemsButtons">
-            <input id = removeButton type="button" value="REMOVE">
+            <td><form method="POST" action="myItems/<%= post.id %>/delete" >
+              <input type="submit" value="Delete" class="btn btn-outline-danger">
+            <input type = "button" value="<%= post.id %>">
             <input id = editButton type="button" value="EDIT">
             <input id = markAsSold type="button" value="MARK AS SOLD">
           </div>
