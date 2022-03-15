@@ -12,44 +12,53 @@
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
     <script type="text/javascript" src="/scripts/app.js"></script>
   </head>
-  <%- include('partials/_header') %>
 
-    <body>
-      <container class="search">
-        <form method="GET" action="/search" id="filter-form">
-          <h3>
-            <center>Price Filter</center>
-          </h3>
-          <label>Minimum Price</label>
-          <input type="number" name="minPrice" id="min-price"></input>
-          <label>Maximum Price</label>
-          <input type="number" name="maxPrice" id="max-price"></input>
-          <button type="submit" value="submit" id="search-submit">Filter</button>
-        </form>
-      </container>
-      <div class="item-grid">
-        <% for (let post of posts) { %>
-          <div class="item">
-            <p>
-              <%= post.title %>
-            </p>
-            <p>
-              <%= post.description %>
-            </p><img src="<%= post.photo_url %>" />
-            <footer class="item_footer">
+  <body>
+    <%- include('partials/_header') %>
+      <main>
+        <div class="body-header">
+          <label id="description_text">
+            <p>Buy and Sell</p>
+            <p> Find All your needs</p>
+            <h3>Popular categories</h3>
+          </label>
+        </div>
+        <!-- filter form -->
+        <div class="div_filter_form">
+          <form method="GET" action="/search" class="filter-form">
+            <h3>Price Filter</h3>
+            <!-- <label>Minimum Price</label> -->
+            <input type="number" name="minPrice" id="min-price" placeholder="Minimum Price"></input>
+            <!-- <label>Maximum Price</label> -->
+            <input type="number" name="maxPrice" id="max-price" placeholder="Maximum Price"></input>
+
+            <button type="submit" value="submit" id="search-submit">
+              Filter
+            </button>
+
+          </form>
+        </div>
+        <!-- poted items -->
+        <div class="item-grid">
+          <% for (let post of posts) { %>
+            <div class="item">
               <p>
-                <%= ("$" + post.price / 100) %>
+                <%= post.title %>post.title
               </p>
-            </footer>
-          </div>
-          <% } %>
-      </div>
+              <p>
+                <%= post.description %>post.description
+              </p><img class="item_img" src="<%= post.photo_url %>" />
+              <footer class="item_footer">
+                <p>
+                  <%= ("$" + post.price / 100) %>
+                </p>
+              </footer>
+            </div>
+            <% } %>
+        </div>
+      </main>
+      <%- include('partials/_footer') %>
+  </body>
 
-      <footer class="page_footer">
-        <p>Copyright &copy;
-          <script> document.write(new Date().getFullYear()); </script>, Platform
-        </p>
-      </footer>
-    </body>
 
 </html>
