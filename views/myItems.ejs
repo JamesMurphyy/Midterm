@@ -45,12 +45,12 @@
       <button type="submit" class="btn btn-primary">Submit</button>
     </div>
   </form>
-
-  <% for (let post of posts) { %>
+  <div class="item-grid"></div>
+    <% for (let post of posts) { %>
     <div class="item"> <p> <%= post.title %></p><p> <%= post.description %></p><img src="<%= post.photo_url %>" />
-   <footer><p><%= ("$" + post.price / 100) %></p></footer></div>
+      <footer><p><%= ("$" + post.price / 100) %></p></footer></div>
     <% } %>
-
+  </div>
 </main>
 
 

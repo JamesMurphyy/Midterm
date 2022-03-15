@@ -33,7 +33,7 @@ module.exports = (db) => {
     }
     return addPosts({...req.body, vendor_id: user})
       .then(Posts => {
-        res.send(Posts);
+        res.redirect('/myItems');
       })
       .catch(e => {
         console.error(e);
@@ -41,16 +41,32 @@ module.exports = (db) => {
       });
   });
 
-
-
-
+  const sqlQuery = `SELECT * FROM posts WHERE vendor_id = $1;`;
   router.get("/", (req, res) => {
     const user = req.session.user;
+    console.log(user)
+    db
+    .query(sqlQuery, [user.id])
+    .then(data => {
+    const user = req.session.user;
     const templateVars = {
-    user: user,
-  };
-    res.render('myItems', templateVars);
+      user: user,
+      posts: data.rows
+    };
+  
+    res.render("myItems", templateVars);
+    });
+  
   });
+
+
+  // router.get("/", (req, res) => {
+  //   const user = req.session.user;
+  //   const templateVars = {
+  //   user: user,
+  // };
+  //   res.render('myItems', templateVars);
+  // });
 
   
 

@@ -67,7 +67,7 @@ app.use("/myItems", myItemsRoutes(db));
 // Home page
 // Warning: avoid creating more routes in this file!
 // Separate them into separate routes files (see above).
-const sqlQuery = "SELECT * FROM posts;";
+const sqlQuery = "SELECT * FROM posts ORDER BY created_at DESC;";
 app.get("/", (req, res) => {db.query(sqlQuery)
   .then(data => {
   const user = req.session.user;
