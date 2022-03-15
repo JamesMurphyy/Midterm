@@ -23,7 +23,7 @@ app.use(morgan("dev"));
 
 app.use(cookieSession({
   name: "session",
-  keys: ["a","d"]
+  keys: ["a", "d"]
 }));
 
 app.set("view engine", "ejs");
@@ -56,7 +56,7 @@ const myItemsRoutes = require("./routes/myItems");
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
 app.use("/api/users", usersRoutes(db));
-app.use("/api/widgets", widgetsRoutes(db));
+// app.use("/api/widgets", widgetsRoutes(db));
 app.use("/register", registrationRoutes(db));
 app.use("/login", loginRoutes(db));
 app.use("/logout", logoutRoutes(db));

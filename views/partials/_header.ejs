@@ -1,26 +1,23 @@
 <header>
-  <nav class="NavContainer">
-    <a href="/home"><img class="logo" src="Capture.JPG" > </img></a>
+  <nav class="nav_container">
+    <a href="/home"><img class="logo" src="Capture.JPG" alt="Platform logo"> </img></a>
+
     <div class="options">
-    <a class="nav-item nav-link" href="/home">Home</a>
-    <a class="nav-item nav-link" href="/favourites">Favourites</a></div>
-    <!-- <div>
-      <a class ="btn btn-primary" href="/login" >Login</a>
-      <a class ="btn btn-primary" href="/register">Register</a>
-    </div> -->
-    
+      <a class="nav-item nav-link" href="/home">Home</a>
+      <a class="nav-item nav-link" href="/favourites">Favourites</a>
+    </div>
+
     <% if(user){ %>
       <a class="nav-item nav-link" href="/myItems">My Items</a>
-      <%=  `Logged in As: ` + user['name'] %>
-      <form action="/logout" method="POST">
-        <button type="submit" class="btn btn-dark btn-sm">Sign-Out</button>
-      </form>
-    <% } else { %>
-        <div class="navbar-nav">
-          <a class="nav-item nav-link" href="/login">Login</a>
-          <a class="nav-item nav-link" href="/register">Register</a>
-        </div>
-    <% } %>
-
+      <%= `Logged in As: ` + user['name'] %>
+        <form action="/logout" method="POST">
+          <button type="submit" class="btn btn-dark btn-sm">Sign-Out</button>
+        </form>
+        <% } else { %>
+          <div class="navbar-nav">
+            <a class="nav-item nav-link" href="/login">Login</a>
+            <a class="nav-item nav-link" href="/register">Register</a>
+          </div>
+          <% } %>
   </nav>
 </header>
