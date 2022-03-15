@@ -59,13 +59,9 @@ module.exports = (db) => {
 
     res.render("myItems", templateVars);
     });
-<<<<<<< HEAD
 
   });
-=======
->>>>>>> bf3c98bdbde4b092da3441f6bc68a9672661e168
 
-  });
 
   // router.post('/:postId/delete' , (req, res) => {
   //   const postId = req.params.postId
@@ -90,9 +86,6 @@ module.exports = (db) => {
     // delete post[postId]
   // })
 
-<<<<<<< HEAD
-
-=======
   router.post('/:postId/delete' , (req, res) => {
     const postId = req.params.postId
     const query = `DELETE FROM posts WHERE posts.id = $1 RETURNING *;`
@@ -103,14 +96,13 @@ module.exports = (db) => {
         res.redirect('/myItems')
       })
   })
-  
+
   router.post('/:postId/edit' , (req, res) => {
     const postId = req.params.postId
       .then((result) => {
         res.redirect('/edit')
       })
   })
->>>>>>> bf3c98bdbde4b092da3441f6bc68a9672661e168
 
   return router;
 };

@@ -29,7 +29,7 @@
     <div class="item-grid">
       <% for (let post of posts) { %>
         <div class="item"> <p> <%= post.title %></p><p> <%= post.description %></p><img src="<%= post.photo_url %>" />
-          <footer><p><%= ("$" + post.price / 100) %></p></footer></div>
+          <footer><p><%= ("$" + post.price) %></p></footer></div>
       <% } %> </div>
 
 
