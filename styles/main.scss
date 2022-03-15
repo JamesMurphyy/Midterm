@@ -34,99 +34,11 @@ body {
 //   color: #fff;
 //   padding: 10px;
 // }
-img {
-  display: flex;
-
-  height: 50px;
-  width: 135px;
-}
-
-nav.NavContainer{
-  margin: 0 0.5em 3em;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  justify-content: space-between;
-  width: 100%;
-}
-
-div.options {
-  display:flex;
-  align-items: flex-start;
-}
-
-a.nav-item.nav-link {
-  padding-left: 25px;
-  padding-right: 25px;
-}
-
-header a {
-  justify-content: space-between;
-  align-content: flex-start;
-  color: black;
-  text-decoration: none;
-}
-
-header h1 {
-  font-size: 48px;
-  margin-bottom: 30px;
-}
-
-header p {
-  font-size: 22px;
-}
-
-container .search{
-  display: flex;
-    flex-direction: row;
-    justify-content: center;
-}
 
 main {
 width: 90vw;
 margin: 0 auto;
 padding: 30px 20px;
-}
-
-article {
-  background-color: #fff;
-  padding: 20px;
-  margin-bottom: 20px;
-  border-radius: 5px;
-}
-article:last-child {
-  margin-bottom: 0;
-}
-article h3 {
-  margin: 10px 0 25px 0;
-}
-article p {
-  margin-top: 16px;
-  line-height: 24px;
-}
-footer .page_footer{
-  text-align: center;
-  background-color: #333;
-  color: #fff;
-  padding: 20px;
-  position: relative;
-  width: 100%;
-  /* position: fixed;
-  z-index: 1; */
-}
-
-// .item-grid{
-//   display: grid;
-// }
-
-.item {
-  width:10em;
-  margin: 0.5em ;
-  padding: .5em;
-  border: solid #20381f;
-  border-radius: 10px;
-  background-color: lightblue;
-
 }
 
 // .item:hover {
