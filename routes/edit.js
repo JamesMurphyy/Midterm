@@ -3,7 +3,9 @@ const router  = express.Router();
 
 module.exports = (db) => {
   router.get("/", (req, res) => {
-    db.query(`SELECT * FROM posts WHERE vendor_id = $1`)
+    const postId = req.params.postId
+    const user = req.session.user;
+    db.query(`SELECT * FROM posts WHERE vendor_id = $1 AND posts.id = $2`, [user.id, postId])
       .then(data => {
         const users = data.rows;
         res.json({ users });
