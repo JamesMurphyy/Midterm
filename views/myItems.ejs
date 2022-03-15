@@ -8,14 +8,19 @@
   <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
   <link rel="stylesheet" href="/styles/main.css" type="text/css" />
   <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/myItems.css" type="text/css" />
+
 
   <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
   <script type="text/javascript" src="/scripts/app.js"></script>
 </head>
 <%- include('partials/_header') %>
-<main style="margin: 1em;">
-  <h3>Add Posts</h3>
-  <form class="form-inline" action="/myItems" method="POST">
+<!-- <main style="margin: 1em;"> -->
+  <main class="test">
+    <div>
+      <h3>Add Posts</h3>
+    </div>
+  <form class="addPostContent" action="/myItems" method="POST">
     <div class="form-group mb-2">
 
       <label for="text">title</label>
@@ -45,15 +50,31 @@
       <button type="submit" class="btn btn-primary">Submit</button>
     </div>
   </form>
-  <div class="item-grid"></div>
+
+
+  <div class="addPost">
+    <div>
+      <h3>My Posts</h3>
+    </div>
     <% for (let post of posts) { %>
-    <div class="item"> <p> <%= post.title %></p><p> <%= post.description %></p><img src="<%= post.photo_url %>" />
-      <footer><p><%= ("$" + post.price / 100) %></p></footer></div>
+    <div id = "textbox">
+      <div class = "postInfo">
+        <p id = "postTitle"> <%= post.title %></p>
+        <p id = "postDescription"> <%= post.description %></p>
+        <img id = "postImg" src="<%= post.photo_url %>"/>
+      </div>
+          <div class = "myItemsButtons">
+            <input id = removeButton type="button" value="REMOVE">
+            <input id = editButton type="button" value="EDIT">
+            <input id = markAsSold type="button" value="MARK AS SOLD">
+          </div>
+        <footer>
+          <p><%= ("$" + post.price / 100) %></p>
+        </footer>
+    </div>
     <% } %>
   </div>
 </main>
-
-
 
   <footer>
     <p>Copyright &copy; <script> document.write(new Date().getFullYear()); </script>, Platform <Buy>

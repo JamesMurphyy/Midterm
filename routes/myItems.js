@@ -15,21 +15,25 @@ module.exports = (db) => {
         Number(posts.price), 
         posts.photo_url 
       ];
-      console.log(values)
-      const query = `
-      INSERT INTO posts (vendor_id, title,  category, item_description, price, photo_url )
-      VALUES ($1, $2, $3, $4, $5, $6)
-      RETURNING *;`;
-    
-      return db
-      .query(query, values)
-      .then((result) => {
-        console.log(result.rows);
-        return (result.rows);
-      })
-      .catch((err) => {
-        console.log(err.message);
-      });
+      if (values.id === '' && values.title === '' && values.category === '' && values.item_description === '' && values.price === '' && !values.photo_url === '') {
+        const query = `
+        INSERT INTO posts (vendor_id, title,  category, item_description, price, photo_url )
+        VALUES ($1, $2, $3, $4, $5, $6)
+        RETURNING *;`;
+      
+        return db
+        .query(query, values)
+        .then((result) => {
+          console.log(result.rows);
+          return (result.rows);
+        })
+        .catch((err) => {
+          console.log(err.message);
+        });
+      } else {
+        res.status(401).send(`<html><body>Sorry! Please <a href="/myItems">try again.</a>All of the fields must be filled out to add a post.</body></html>\n`);
+      }
+
     }
     return addPosts({...req.body, vendor_id: user})
       .then(Posts => {
@@ -41,7 +45,7 @@ module.exports = (db) => {
       });
   });
 
-  const sqlQuery = `SELECT * FROM posts WHERE vendor_id = $1;`;
+  const sqlQuery = `SELECT * FROM posts WHERE vendor_id = $1 ORDER BY created_at DESC;`;
   router.get("/", (req, res) => {
     const user = req.session.user;
     console.log(user)
