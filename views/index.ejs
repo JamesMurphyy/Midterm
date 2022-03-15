@@ -17,7 +17,7 @@
 <main style="margin: 1em;">
 <body>
   <container class="search">
-    <div style="align-items: center;"><form method="GET" action="/search" id="filter-form" style="display: flex; flex-direction: column; justify-content: center;">
+    <div style="align-items: center;"><form method="POST" action="/search" id="filter-form" style="display: flex; flex-direction: column; justify-content: center;">
       <label>Price Filter</label>
       <label>Minimum Price</label>
       <input type="number" name="minPrice" id="min-price"></input>
@@ -49,7 +49,6 @@
     <% } %>
   </div>
 </main>
-
   <footer>
     <p>Copyright &copy; <script> document.write(new Date().getFullYear()); </script>, Platform</p>
 

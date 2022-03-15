@@ -110,29 +110,36 @@ footer {
   z-index: 1; */
 }
 
-.item-grid{
-  display: grid;
+div.item-grid{
+  display: inline-grid;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  justify-content: space-evenly;
+  align-self: center;
+
+  grid-template-columns: 100px 50px 100px;
+  grid-template-rows: 80px auto 80px;
+  column-gap: 10px;
+  row-gap: 15px;
 }
 
 .item {
-  padding: 15px 15px;
+
   border: solid #20381f;
-  padding-top: 5px;
-  padding-bottom: 10px;
+
   border-radius: 10px;
   background-color: lightblue;
 
 }
 
-.test {
-  background-color:red;
+
+.item:hover {
+  box-shadow: rgba(2, 8, 20, 0.1) 0px 0.35em 1.175em, rgba(2, 8, 20, 0.08) 0px 0.175em 0.5em;
+  transform: translateY(-3px) scale(1.05);
 }
 
-// .item:hover {
-//   box-shadow: rgba(2, 8, 20, 0.1) 0px 0.35em 1.175em, rgba(2, 8, 20, 0.08) 0px 0.175em 0.5em;
-//   transform: translateY(-3px) scale(1.05);
-// }
 
-// .star-btn:hover {
-//   background-color: gold;
-// }
+.star-btn:hover {
+  background-color: gold;
+}

@@ -70,7 +70,7 @@ module.exports = (db) => {
     })
     .catch(e => {
       console.log(e)
-      res.status(401).send(`<html><body>Sorry! Please <a href="/login">login</a> or <a href="/register">register</a> to access this page.</body></html>\n`);
+      res.status(401).send(`<html><body>Sorry! Username/Password is incorrect! Please  <a href="/login">try again</a> or <a href="/register">register</a></body></html>\n`);
     });
   });
 
