@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
     <link rel="stylesheet" href="/styles/main.css" type="text/css" />
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/popup.css" type="text/css" />
 
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
     <script type="text/javascript" src="/scripts/app.js"></script>
@@ -39,15 +40,15 @@
           </form>
         </div>
         <!-- poted items -->
-        <div class="item-grid">
+        <div class="item_grid">
           <% for (let post of posts) { %>
             <div class="item">
-              <p>
-                <%= post.title %>post.title
+              <p class="post_title">
+                <%= post.title %> post.title
               </p>
-              <p>
-                <%= post.description %>post.description
-              </p><img class="item_img" src="<%= post.photo_url %>" />
+
+              <img class="item_img" src="<%= post.photo_url %>" alt="description:<%= post.description %>" />
+              <!-- The Modal -->
               <footer class="item_footer">
                 <p>
                   <%= ("$" + post.price / 100) %>
@@ -55,6 +56,13 @@
               </footer>
             </div>
             <% } %>
+        </div>
+        <!-- many to one model -->
+        <div id="myModal" class="modal">
+          <span class="close">&times;</span>
+          <img class="modal-content" id="img01" />
+          <div id="caption">
+          </div>
         </div>
       </main>
       <%- include('partials/_footer') %>
