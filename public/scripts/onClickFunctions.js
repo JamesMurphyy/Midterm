@@ -11,15 +11,15 @@ $(document).ready(() =>{
   //       // Do something with the result
   //   }
 
-function makeDELETErequest() {
-  $.ajax({
-      url: 'test.html',
-      type: 'DELETE',
-      success: function (result) {
-          // Do something with the result
-      }
-  });
-}
+// function makeDELETErequest() {
+//   $.ajax({
+//       url: 'test.html',
+//       type: 'DELETE',
+//       success: function (result) {
+//           // Do something with the result
+//       }
+//   });
+// }
 
 });
 
