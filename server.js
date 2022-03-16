@@ -56,8 +56,8 @@ const myItemsRoutes = require("./routes/myItems");
 const favouritesRoutes = require("./routes/favourites");
 const editRoutes = require("./routes/edit");
 // const messagesRoutes = require("./routes/messages");
-const conversations = require("./routes/conversations")
-const messages = require("./routes/messages")
+// const conversations = require("./routes/conversations")
+// const messages = require("./routes/messages")
 
 
 
@@ -75,8 +75,8 @@ app.use("/edit", editRoutes(db));
 // app.use("/messages", messagesRoutes(db));
 
 
-app.use("/", conversations(db));
-app.use("/", messages(db));
+// app.use("/", conversations(db));
+// app.use("/", messages(db));
 // Note: mount other resources here, using the same pattern above
 
 // Home page
