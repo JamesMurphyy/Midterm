@@ -4,12 +4,12 @@
 
     <div class="options">
       <a class="nav-item nav-link" href="/home">Home</a>
-      <a class="nav-item nav-link" href="/favourites">Favourites</a>
+
 
     </div>
 
     <% if(user){ %>
-
+      <a class="nav-item nav-link" href="/favourites">Favourites</a>
       <a class="nav-item nav-link" href="/myItems">My Items</a>
       <%= `Logged in As: ` + user['name'] %>
         <form action="/logout" method="POST">
