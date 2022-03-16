@@ -43,7 +43,10 @@
         <p id = "postDescription"> <%= post.description %></p>
         <img id = "postImg" src="<%= post.photo_url %>"/>
       </div>
-         
+      <td><form method="POST" action="favourites/<%= post.id %>/delete" >
+        <input type="submit" value="Remove From Favourites" class="btn btn-outline-danger">
+        <!-- <input name="postId" type="hidden" value="<%= post.id %>" class="btn btn-outline-danger"> -->
+      </form>
         <footer>
           <p><%= ("$" + post.price) %></p>
         </footer>
