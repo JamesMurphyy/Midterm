@@ -75,6 +75,7 @@
 #postImg {
   display: flex;
   flex-direction: row-reverse;
+  max-width: 200px;
 }
 
 #postDescription {
