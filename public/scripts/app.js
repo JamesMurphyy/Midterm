@@ -17,8 +17,7 @@ $(() => {
     modal.style.display = "block";
     modalImg.src = event.target.src;
     captionText.innerHTML = event.target.alt;
-    favouritesForm.setAttribute("action", `/favourites/${event.target.id}`)
-    console.log("testtyy111", captionText, event);
+    favouritesForm.setAttribute("action", `/favourites/${event.target.id}`);
   });
 
   // Get the <span> element that closes the modal
