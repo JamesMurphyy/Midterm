@@ -22,8 +22,9 @@ module.exports = (db) => {
       });
   });
 
-  router.post(`edit/:postId`, (req, res) => {
+  router.post(`/:postId`, (req, res) => {
     const user = req.session.user;
+    console.log("IS THIS WORKING")
 
       const updatePosts = function(posts) {
         const values = [
@@ -33,13 +34,12 @@ module.exports = (db) => {
           posts.item_description,
           Number(posts.price),
           posts.photo_url,
-          posts.req.params.postId
+          // posts.req.params.postId
         ];
         console.log(values)
         // if (values.id === '' && values.title === '' && values.category === '' && values.item_description === '' && values.price === '' && !values.photo_url === '') {
           const query = `
           UPDATE posts SET (vendor_id = $1, title = $2,  category = $3, item_description = $4 , price = $5 , photo_url = $6)
-          WHERE post.id = $7
           RETURNING *;`;
 
           return db

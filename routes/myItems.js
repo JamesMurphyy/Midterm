@@ -86,7 +86,7 @@ module.exports = (db) => {
     // delete post[postId]
   // })
 
-  router.get('/:postId/edit' , (req, res) => {
+  router.post('/:postId/edit' , (req, res) => {
     const postId = req.params.postId
     const user = req.session.user;
     const query = `SELECT * FROM posts WHERE vendor_id = $1 AND posts.id = $2 ORDER BY created_at DESC;`
@@ -95,6 +95,17 @@ module.exports = (db) => {
       .then((result) => {
         console.log("edit post", result.rows[0]);
         res.redirect(`/edit/${postId}`)
+      })
+  })
+  router.post('/:postId/sold' , (req, res) => {
+    const postId = req.params.postId
+    const user = req.session.user;
+    const query = `UPDATE posts SET active = false WHERE posts.id = $1 RETURNING *;`
+      return db
+      .query(query, [postId])
+      .then((result) => {
+        console.log("update post", result.rows);
+        res.redirect(`/myItems`)
       })
   })
 
