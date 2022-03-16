@@ -25,9 +25,7 @@ module.exports = (db) => {
       console.log("fbasdljfbndlskjfndaslkjfnads");
       console.log(data);
 
-      const templateVars = { posts: data.rows,
-        user: req.session.user }
-      res.render("favourites", templateVars);
+      res.redirect("/favourites");
 
 
     });
