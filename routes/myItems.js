@@ -97,6 +97,17 @@ module.exports = (db) => {
         res.redirect(`/edit/${postId}`)
       })
   })
+  router.post('/:postId/sold' , (req, res) => {
+    const postId = req.params.postId
+    const user = req.session.user;
+    const query = `UPDATE posts SET active = false WHERE posts.id = $1 RETURNING *;`
+      return db
+      .query(query, [postId])
+      .then((result) => {
+        console.log("update post", result.rows);
+        res.redirect(`/myItems`)
+      })
+  })
 
 
   router.post('/:postId/delete' , (req, res) => {
