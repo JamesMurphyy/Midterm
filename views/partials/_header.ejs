@@ -11,6 +11,7 @@
     <% if(user){ %>
       <a class="nav-item nav-link" href="/favourites">Favourites</a>
       <a class="nav-item nav-link" href="/myItems">My Items</a>
+      <a class="nav-item nav-link" href="/messages/<%= user['id'] %>">Conversations</a>
       <%= `Logged in As: ` + user['name'] %>
         <form action="/logout" method="POST">
           <button type="submit" class="btn btn-dark btn-sm">Sign-Out</button>

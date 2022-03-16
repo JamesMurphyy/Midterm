@@ -56,6 +56,7 @@ const favouritesRoutes = require("./routes/favourites");
 const editRoutes = require("./routes/edit");
 
 
+
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
 app.use("/api/users", usersRoutes(db));
@@ -67,9 +68,6 @@ app.use("/search", searchRoutes(db));
 app.use("/myItems", myItemsRoutes(db));
 app.use("/favourites", favouritesRoutes(db));
 app.use("/edit", editRoutes(db));
-
-
-
 // Note: mount other resources here, using the same pattern above
 
 // Home page
@@ -86,7 +84,6 @@ app.get("/", (req, res) => {db.query(sqlQuery)
 
   res.render("index", templateVars);
   });
-
 });
 
 app.get("/home", (req, res) => {

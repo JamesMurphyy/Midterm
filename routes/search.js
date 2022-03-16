@@ -19,4 +19,4 @@ module.exports = (db) => {
   });
   return router;
 };
-7
+
