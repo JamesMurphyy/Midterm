@@ -18,9 +18,9 @@
     <main>
       <div class="body-header">
         <label id="description_text">
-          <p>Buy and Sell</p>
-          <p> Find All your needs</p>
-          <h3>Popular categories</h3>
+          <p></p>
+          <p> </p>
+          <h3></h3>
         </label>
       </div>
       <!-- filter form -->
@@ -39,9 +39,9 @@
         <% for (let post of posts) { %>
           <div class="item">
             <p class="post_title">
-              <%= post.title %> post.title
+              <%= post.title %>
             </p>
-<img class="item_img" src="<%= post.photo_url %>" alt="description:<%= post.description %>" />
+<img id="<%= post.id %>" class="item_img" src="<%= post.photo_url %>" alt="description:<%= post.description %>" />
             <!-- The Modal -->
             <footer class="item_footer">
               <p>
@@ -56,7 +56,9 @@
         <span class="close">&times;</span>
         <img class="modal-content" id="img01" />
         <div class="myItemsButtons">
-          <input id=favouriteButton type="button" value="FAVOURITE">
+          <td><form  id="AddToFavourites" method="POST" action="/favourites/<%= posts.id %>" >
+            <input type="submit" value="Add to Favourites" class="btn btn-outline-danger">
+          </form>
           <input id=messageButton type="button" value="Send Message">
         </div>
         <div id="caption">

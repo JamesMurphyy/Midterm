@@ -9,6 +9,7 @@ $(() => {
   let img = document.getElementsByClassName("item_img");
   let modalImg = document.getElementById("img01");
   let captionText = document.getElementById("caption");
+  let favouritesForm = document.getElementById("AddToFavourites");
 
   console.log('img =>', img);
   // each clickable
@@ -16,6 +17,7 @@ $(() => {
     modal.style.display = "block";
     modalImg.src = event.target.src;
     captionText.innerHTML = event.target.alt;
+    favouritesForm.setAttribute("action", `/favourites/${event.target.id}`)
     console.log("testtyy111", captionText, event);
   });
 
