@@ -21,7 +21,6 @@ db.connect();
 //         The :status token will be colored red for server error codes, yellow for client error codes, cyan for redirection codes, and uncolored for all other codes.
 app.use(morgan("dev"));
 
-
 app.use(cookieSession({
   name: "session",
   keys: ["a", "d"]
@@ -55,10 +54,6 @@ const searchRoutes = require("./routes/search");
 const myItemsRoutes = require("./routes/myItems");
 const favouritesRoutes = require("./routes/favourites");
 const editRoutes = require("./routes/edit");
-// const messagesRoutes = require("./routes/messages");
-// const conversations = require("./routes/conversations")
-// const messages = require("./routes/messages")
-
 
 
 // Mount all resource routes
@@ -72,27 +67,26 @@ app.use("/search", searchRoutes(db));
 app.use("/myItems", myItemsRoutes(db));
 app.use("/favourites", favouritesRoutes(db));
 app.use("/edit", editRoutes(db));
-// app.use("/messages", messagesRoutes(db));
 
 
-// app.use("/", conversations(db));
-// app.use("/", messages(db));
+
 // Note: mount other resources here, using the same pattern above
 
 // Home page
 // Warning: avoid creating more routes in this file!
 // Separate them into separate routes files (see above).
-const sqlQuery = "SELECT * FROM posts WHERE active = true ORDER BY created_at DESC;";
+const sqlQuery = "SELECT * FROM posts WHERE active = 'true' ORDER BY created_at DESC;";
 app.get("/", (req, res) => {db.query(sqlQuery)
   .then(data => {
   const user = req.session.user;
-    const templateVars = {
-      user: user,
-      posts: data.rows
-    };
+  const templateVars = {
+    user: user,
+    posts: data.rows
+  };
 
-    res.render("index", templateVars);
+  res.render("index", templateVars);
   });
+
 });
 
 app.get("/home", (req, res) => {

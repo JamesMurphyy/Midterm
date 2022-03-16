@@ -18,21 +18,7 @@ module.exports = (db) => {
 
   router.post("/:post_id", (req, res) => {
     const post_id = req.params.post_id;
-    console.log(req.params);
-    console.log(req.session);
-
     const userID = req.session.user.id;
-
-  //   console.log("userID", userID);
-  //   console.log("req.params", req.params);
-  //   const sql = `INSERT INTO favourites (user_id, post_id) VALUES ($1, $2) RETURNING *;`;
-  //   db.query(sql, [userID, post_id])
-  //     .then(data => {
-  //       console.log("fbasdljfbndlskjfndaslkjfnads");
-  //       console.log(data);
-  //       res.redirect("/favourites");
-  //     });
-  // });
     console.log(post_id, userID);
 
     const sqlQuery = "SELECT * FROM favourites WHERE user_id = $1 and post_id = $2;";
@@ -86,6 +72,5 @@ module.exports = (db) => {
         .json({ error: err.message });
     });
   });
-
   return router;
 };

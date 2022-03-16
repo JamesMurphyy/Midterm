@@ -1,12 +1,12 @@
 const express = require('express');
-const router = express.Router();
+const router  = express.Router();
 
 module.exports = (db) => {
 
   router.post('/', (req, res) => {
     const user = req.session.user;
-    console.log(req.session.user, "llllllllllll");
-    const addPosts = function (posts) {
+    console.log(req.session.user, "llllllllllll")
+    const addPosts = function(posts) {
       const values = [
         user.id,
         posts.title,
@@ -16,12 +16,12 @@ module.exports = (db) => {
         posts.photo_url
       ];
       // if (values.id === '' && values.title === '' && values.category === '' && values.item_description === '' && values.price === '' && !values.photo_url === '') {
-      const query = `
+        const query = `
         INSERT INTO posts (vendor_id, title,  category, item_description, price, photo_url )
         VALUES ($1, $2, $3, $4, $5, $6)
         RETURNING *;`;
 
-      return db
+        return db
         .query(query, values)
         .then((result) => {
           console.log(result.rows);
@@ -34,14 +34,14 @@ module.exports = (db) => {
       //   res.status(401).send(`<html><body>Sorry! Please <a href="/myItems">try again.</a>All of the fields must be filled out to add a post.</body></html>\n`);
       // }
 
-    };
-    return addPosts({ ...req.body, vendor_id: user })
+    }
+    return addPosts({...req.body, vendor_id: user})
       .then(Posts => {
         res.redirect('/myItems');
       })
       .catch(e => {
         console.error(e);
-        res.send(e);
+        res.send(e)
       });
   });
 
@@ -49,16 +49,16 @@ module.exports = (db) => {
   router.get("/", (req, res) => {
     const user = req.session.user;
     db
-      .query(sqlQuery, [user.id])
-      .then(data => {
-        const user = req.session.user;
-        const templateVars = {
-          user: user,
-          posts: data.rows
-        };
+    .query(sqlQuery, [user.id])
+    .then(data => {
+    const user = req.session.user;
+    const templateVars = {
+      user: user,
+      posts: data.rows
+    };
 
-        res.render("myItems", templateVars);
-      });
+    res.render("myItems", templateVars);
+    });
 
   });
 
@@ -108,7 +108,7 @@ module.exports = (db) => {
         res.redirect(`/myItems`);
       });
   });
-  
+
   router.post('/:postId/delete', (req, res) => {
     console.log("In delete function");
     const postId = req.params.postId;

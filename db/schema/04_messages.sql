@@ -8,11 +8,6 @@ CREATE TABLE messages ( -- Each message will have one response
 
 );
 
--- CREATE TABLE messages (
--- id SERIAL PRIMARY KEY NOT NULL,
--- buyer_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
--- message TEXT
--- );
 
 
 

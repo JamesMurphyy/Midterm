@@ -8,11 +8,9 @@
 
     </div>
 
-    <% if(user.id){ %>
+    <% if(user){ %>
       <a class="nav-item nav-link" href="/favourites">Favourites</a>
       <a class="nav-item nav-link" href="/myItems">My Items</a>
-      <!-- <a class="nav-item nav-link" href="/messages">Conversations</a> -->
-      <a href="http://localhost:8080/conversations">CONVERSATION </a>
       <%= `Logged in As: ` + user['name'] %>
         <form action="/logout" method="POST">
           <button type="submit" class="btn btn-dark btn-sm">Sign-Out</button>
