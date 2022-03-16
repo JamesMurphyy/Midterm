@@ -21,6 +21,7 @@ db.connect();
 //         The :status token will be colored red for server error codes, yellow for client error codes, cyan for redirection codes, and uncolored for all other codes.
 app.use(morgan("dev"));
 
+
 app.use(cookieSession({
   name: "session",
   keys: ["a", "d"]
@@ -54,7 +55,9 @@ const searchRoutes = require("./routes/search");
 const myItemsRoutes = require("./routes/myItems");
 const favouritesRoutes = require("./routes/favourites");
 const editRoutes = require("./routes/edit");
-const messagesRoutes = require("./routes/messages");
+// const messagesRoutes = require("./routes/messages");
+const conversations = require("./routes/conversations")
+const messages = require("./routes/messages")
 
 
 
@@ -69,7 +72,11 @@ app.use("/search", searchRoutes(db));
 app.use("/myItems", myItemsRoutes(db));
 app.use("/favourites", favouritesRoutes(db));
 app.use("/edit", editRoutes(db));
-app.use("/messages", messagesRoutes(db));
+// app.use("/messages", messagesRoutes(db));
+
+
+app.use("/", conversations(db));
+app.use("/", messages(db));
 // Note: mount other resources here, using the same pattern above
 
 // Home page

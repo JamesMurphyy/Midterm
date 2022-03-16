@@ -42,13 +42,6 @@
               id="<%= post.id %>" />
 
             <!-- The Modal -->
-            <div class="myItemsButtons">
-              <td><form  id="AddToFavourites" method="POST" action="/favourites/<%= post.id %>" >
-                <input type="submit" value="Add to Favourites" class="btn btn-outline-danger">
-              </form>
-            </td>
-
-            </div>
             <footer class="item_footer">
               <p>
                 <%= ("$" + post.price ) %>
@@ -63,13 +56,13 @@
         <img class="modal-content" id="img01" />
         <div id="caption">
         </div>
+        <form method='POST' action='/favourites' id="AddToFavourites" class="myItemsButtons">
+          <input type="submit" value="Favourites">
+        </form>
+        <form type="submit" id=messageButton class="message_button">
+          <input id=messageButton value="Send Message">
+        </form>
       </div>
-      <form method='POST' action='/favourites' id="AddToFavourites" class="myItemsButtons">
-        <input type="submit" value="Favourites">
-      </form>
-      <form type="submit" id=messageButton class="message_button">
-        <input id=messageButton value="Send Message">
-      </form>
     </main>
     <%- include('partials/_footer') %>
       </body>
