@@ -1,0 +1,27 @@
+<header>
+  <nav class="nav_container">
+    <a href="/home"><img class="logo" src="Capture.JPG" alt="Platform logo"> </img></a>
+
+    <div class="options">
+      <a class="nav-item nav-link" href="/home">Home</a>
+
+
+    </div>
+
+    <% if(user.id){ %>
+      <a class="nav-item nav-link" href="/favourites">Favourites</a>
+      <a class="nav-item nav-link" href="/myItems">My Items</a>
+      <!-- <a class="nav-item nav-link" href="/messages">Conversations</a> -->
+      <a href="http://localhost:8080/conversations">CONVERSATION </a>
+      <%= `Logged in As: ` + user['name'] %>
+        <form action="/logout" method="POST">
+          <button type="submit" class="btn btn-dark btn-sm">Sign-Out</button>
+        </form>
+        <% } else { %>
+          <div class="navbar-nav">
+            <a class="nav-item nav-link" href="/login">Login</a>
+            <a class="nav-item nav-link" href="/register">Register</a>
+          </div>
+          <% } %>
+  </nav>
+</header>

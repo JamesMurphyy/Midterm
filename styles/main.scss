@@ -1,17 +1,105 @@
-body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
+* {
+  box-sizing: border-box;
+  // background-color: white;
+}
 
-  background: rgb(163, 208, 219);
-  background: linear-gradient(
-    227deg,
-    rgba(163, 208, 219, 1) 0%,
-    rgba(163, 176, 219, 1) 20%,
-    rgba(163, 173, 219, 1) 34%,
-    rgba(163, 219, 208, 1) 59%,
-    rgba(163, 208, 219, 1) 74%,
-    rgba(163, 208, 219, 1) 100%
-  );
+header {
+  // display:flex;
+  justify-content: space-evenly;
+  padding: 1em 0;
+  background-color: rgb(87, 175, 251);
+}
+
+.logo{
+  display: inline-block;
+  margin-right: -3em;
+  font-size: 1.25rem;
+  white-space: nowrap;
+  max-width: 10em;
+  background-blend-mode:multiply;
+
+}
+
+.nav_container{
+    position: relative;
+    display: flex;
+    flex-wrap: nowrap;
+    padding: 0.5rem 1rem;
+    flex-direction: row;
+    // justify-content: space-evenly;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.options{
+  margin-left:-15em;
+}
+
+// .navbar-nav{
+
+// }
+
+div.item-grid{
+  display: inline-grid;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  justify-content: space-evenly;
+  align-self: center;
+
+  grid-template-columns: 100px 50px 100px;
+  grid-template-rows: 80px auto 80px;
+  column-gap: 10px;
+  row-gap: 15px;
+}
+
+.item {
+
+  border: solid #20381f;
+
+  border-radius: 10px;
+  background-color: lightblue;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family:Verdana, Geneva, Tahoma;
+  background-color: #d65656;
+  background-blend-mode: color-burn;
+  background-size: cover;
+}
+
+
+
+// main {
+// width: 90vw;
+// margin: 0 auto;
+// padding: 30px 20px;
+// }
+
+
+// <<<<<<< HEAD
+// .item:hover {
+//   box-shadow: rgba(2, 8, 20, 0.1) 0px 0.35em 1.175em, rgba(2, 8, 20, 0.08) 0px 0.175em 0.5em;
+//   transform: translateY(-3px) scale(1.05);
+// }
+
+
+// .star-btn:hover {
+//   background-color: gold;
+// =======
+// .star-btn:hover {
+//   background-color: gold;
+
+.page_footer {
+  background-color: #333;
+  color: rgb(15, 14, 14);
+  position: relative;
+  display: flex;
+    flex-direction: row;
+    align-items: center;
+  padding: 1em;
+  width: 100%;
+  height: 5em;
 }
