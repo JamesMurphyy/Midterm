@@ -53,6 +53,7 @@ const logoutRoutes = require("./routes/logout");
 const searchRoutes = require("./routes/search");
 const myItemsRoutes = require("./routes/myItems");
 const favouritesRoutes = require("./routes/favourites");
+const editRoutes = require("./routes/edit");
 
 
 // Mount all resource routes
@@ -65,6 +66,9 @@ app.use("/logout", logoutRoutes(db));
 app.use("/search", searchRoutes(db));
 app.use("/myItems", myItemsRoutes(db));
 app.use("/favourites", favouritesRoutes(db));
+app.use("/edit", editRoutes(db));
+
+
 
 // Note: mount other resources here, using the same pattern above
 

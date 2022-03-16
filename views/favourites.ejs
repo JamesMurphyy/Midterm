@@ -43,13 +43,7 @@
         <p id = "postDescription"> <%= post.description %></p>
         <img id = "postImg" src="<%= post.photo_url %>"/>
       </div>
-          <div class = "myItemsButtons">
-            <td><form method="POST" action="myItems/<%= post.id %>/delete" >
-              <input type="submit" value="Delete" class="btn btn-outline-danger">
-            <input type = "button" value="<%= post.id %>">
-            <input id = editButton type="button" value="EDIT">
-            <input id = markAsSold type="button" value="MARK AS SOLD">
-          </div>
+         
         <footer>
           <p><%= ("$" + post.price) %></p>
         </footer>

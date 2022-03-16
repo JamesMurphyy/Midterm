@@ -4,7 +4,7 @@ const router  = express.Router();
 module.exports = (db) => {
 
   router.get("/", (req, res) => {
-    const sqlQuery = "SELECT * FROM favourites JOIN posts ON post_id = posts.id WHERE favourites.user_id = $1 ;";
+    const sqlQuery = "SELECT * FROM favourites JOIN posts ON post_id = posts.id WHERE favourites.user_id = $1;";
     db.query(sqlQuery, [req.session.user.id])
     .then(data => {
       const user = req.session.user

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Home Page</title>
+
+  <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
+  <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/main.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/myItems.css" type="text/css" />
+
+
+  <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
+  <script type="text/javascript" src="/scripts/app.js"></script>
+  <script type="text/javascript" src="/scripts/onClickFunctions.js"></script>
+
+
+</head>
+<main class="test">
+  <div>
+    <h3>Edit Post</h3>
+  </div>
+<form class="addPostContent" action="/myItems" method="POST">
+  <div class="form-group mb-2">
+
+    <label for="text">title</label>
+    <input class="form-control" type="text" name="title" style="width: 300px; margin: 1em">
+
+
+    <label for="category">Choose a category:</label>
+    <select name="category">
+      <option value="sport">Sport</option>
+      <option value="fashion">Fashion</option>
+      <option value="electronics">Electronics</option>
+    </select>
+
+
+    <label for="price">price</label>
+    <input class="form-control" name="price" style="width: 300px; margin: 1em">
+
+
+    <label for="item_description">description</label>
+    <input class="form-control" type="text" name="item_description" style="width: 300px; margin: 1em">
+
+
+    <label for="photo_url">photo_url</label>
+    <input class="form-control" type="text" name="photo_url" style="width: 300px; margin: 1em">
+
+    <td><form method="POST" action="edit/<%= postId %>" >
+      <input type="submit" value="Update" class="btn btn-outline-danger">
+    </form>
+
+  </div>
+</form>
