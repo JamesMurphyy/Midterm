@@ -13,7 +13,7 @@
 
   <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
   <script type="text/javascript" src="/scripts/app.js"></script>
-  <script type="text/javascript" src="/scripts/onClickFunctions.js"></script>
+
 
 
 </head>
@@ -67,12 +67,10 @@
         <!-- <img id = "postImg" src="<%= post.photo_url %>"/> -->
       </div>
           <div class = "myItemsButtons">
-            <td><form method="POST" action="myItems/<%= post.id %>/sold" >
-              <input type="submit" value="Mark as Sold" class="btn btn-outline-primary">
+            <td><form id="sold" method="POST" action="myItems/<%= post.id %>/sold" >
+              <input id="sold" type="submit" value="Mark as Sold" >
               </form>
-
-
-
+              
             <td><form method="POST" action="myItems/<%= post.id %>/delete" >
               <input type="submit" value="Delete" class="btn btn-outline-danger">
             </form>

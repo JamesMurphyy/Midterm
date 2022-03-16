@@ -108,8 +108,7 @@ module.exports = (db) => {
         res.redirect(`/myItems`);
       });
   });
-
-
+  
   router.post('/:postId/delete', (req, res) => {
     console.log("In delete function");
     const postId = req.params.postId;
