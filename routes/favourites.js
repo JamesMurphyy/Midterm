@@ -1,17 +1,19 @@
 const express = require('express');
-const router  = express.Router();
+const router = express.Router();
 
 module.exports = (db) => {
 
   router.get("/", (req, res) => {
     const sqlQuery = "SELECT * FROM favourites JOIN posts ON post_id = posts.id WHERE favourites.user_id = $1;";
     db.query(sqlQuery, [req.session.user.id])
-    .then(data => {
-      const user = req.session.user
-      const templateVars = { posts: data.rows,
-      user: user }
-      res.render("favourites", templateVars);
-    })
+      .then(data => {
+        const user = req.session.user;
+        const templateVars = {
+          posts: data.rows,
+          user: user
+        };
+        res.render("favourites", templateVars);
+      });
   });
 
   router.post("/:post_id", (req, res) => {

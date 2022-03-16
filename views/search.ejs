@@ -14,7 +14,7 @@
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
     <script type="text/javascript" src="/scripts/app.js"></script>
   </head>
-  <%- include('partials/_header') %>
+<%- include('partials/_header') %>
     <main>
       <div class="body-header">
         <label id="description_text">
@@ -31,14 +31,16 @@
           <button type="submit" value="submit" id="search-submit">Filter</button>
         </form>
       </div>
-      <!-- poted items -->
+<!-- poted items -->
       <div class="item_grid">
         <% for (let post of posts) { %>
           <div class="item">
             <p class="post_title">
               <%= post.title %>
             </p>
-<img class="item_img" src="<%= post.photo_url %>" alt="description:<%= post.description %>" />
+            <img class="item_img" src="<%= post.photo_url %>" alt="description:<%= post.description %> "
+              id="<%= post.id %>" />
+
             <!-- The Modal -->
             <footer class="item_footer">
               <p>
@@ -52,16 +54,17 @@
       <div id="myModal" class="modal">
         <span class="close">&times;</span>
         <img class="modal-content" id="img01" />
-        <div class="myItemsButtons">
-          <input method='POST' action='' id=favouriteButton type="button" value="FAVOURITE">
-          <input id=messageButton type="button" value="Send Message">
-        </div>
         <div id="caption">
         </div>
+        <form method='POST' action='/favourites' id="AddToFavourites" class="myItemsButtons">
+          <input type="submit" value="Favourites">
+        </form>
+        <form type="submit" id=messageButton class="message_button">
+          <input id=messageButton value="Send Message">
+        </form>
       </div>
     </main>
     <%- include('partials/_footer') %>
       </body>
 
 </html>
-

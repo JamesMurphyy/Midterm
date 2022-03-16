@@ -83,49 +83,42 @@ module.exports = (db) => {
   //           }
   //         }
   //       })
-    // delete post[postId]
+  // delete post[postId]
   // })
 
-  router.post('/:postId/edit' , (req, res) => {
-    const postId = req.params.postId
+  router.post('/:postId/edit', (req, res) => {
+    const postId = req.params.postId;
     const user = req.session.user;
-    const query = `SELECT * FROM posts WHERE vendor_id = $1 AND posts.id = $2 ORDER BY created_at DESC;`
-      return db
+    const query = `SELECT * FROM posts WHERE vendor_id = $1 AND posts.id = $2 ORDER BY created_at DESC;`;
+    return db
       .query(query, [user.id, postId])
       .then((result) => {
         console.log("edit post", result.rows[0]);
-        res.redirect(`/edit/${postId}`)
-      })
-  })
-  router.post('/:postId/sold' , (req, res) => {
-    const postId = req.params.postId
+        res.redirect(`/edit/${postId}`);
+      });
+  });
+  router.post('/:postId/sold', (req, res) => {
+    const postId = req.params.postId;
     const user = req.session.user;
-    const query = `UPDATE posts SET active = false WHERE posts.id = $1 RETURNING *;`
-      return db
+    const query = `UPDATE posts SET active = false WHERE posts.id = $1 RETURNING *;`;
+    return db
       .query(query, [postId])
       .then((result) => {
         console.log("update post", result.rows);
-        res.redirect(`/myItems`)
-      })
-  })
+        res.redirect(`/myItems`);
+      });
+  });
 
-
-  router.post('/:postId/delete' , (req, res) => {
-    console.log("In delete function")
-    const postId = req.params.postId
-    const query = `DELETE FROM posts WHERE posts.id = $1 RETURNING *;`
-      return db
+  router.post('/:postId/delete', (req, res) => {
+    console.log("In delete function");
+    const postId = req.params.postId;
+    const query = `DELETE FROM posts WHERE posts.id = $1 RETURNING *;`;
+    return db
       .query(query, [postId])
       .then((result) => {
         console.log("delete post", result.rows[0]);
-        res.redirect('/myItems')
-      })
-  })
-
-
-
-
-
-
+        res.redirect('/myItems');
+      });
+  });
   return router;
 };

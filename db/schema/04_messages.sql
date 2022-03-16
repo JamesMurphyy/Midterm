@@ -13,7 +13,6 @@ CREATE TABLE messages ( -- Each message will have one response
 
 
 
-
 -- on the UI* IN the inbox page, For every message, have a toggle <div> and query the response attribute for the particular message_id
 
   -- WHEN THE BUYER tries to contact the seller, have a pre-written message " I'm interested in this item. Please provide a contact~"
