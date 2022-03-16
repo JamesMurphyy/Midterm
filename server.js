@@ -52,6 +52,7 @@ const loginRoutes = require("./routes/login");
 const logoutRoutes = require("./routes/logout");
 const searchRoutes = require("./routes/search");
 const myItemsRoutes = require("./routes/myItems");
+const editRoutes = require("./routes/edit");
 
 
 // Mount all resource routes
@@ -63,6 +64,10 @@ app.use("/login", loginRoutes(db));
 app.use("/logout", logoutRoutes(db));
 app.use("/search", searchRoutes(db));
 app.use("/myItems", myItemsRoutes(db));
+app.use("/edit", editRoutes(db));
+
+
+
 // Note: mount other resources here, using the same pattern above
 
 // Home page

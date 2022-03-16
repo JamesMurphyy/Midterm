@@ -14,17 +14,6 @@
   <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
   <script type="text/javascript" src="/scripts/app.js"></script>
   <script type="text/javascript" src="/scripts/onClickFunctions.js"></script>
-  <script>
-    function makeDELETErequest() {
-      $.ajax({
-        url: 'myItems',
-        type: 'DELETE',
-        success: function (ctl) {
-          $(ctl).parents("p").remove();
-        }
-      })
-    };
-  </script>
 
 
 </head>
@@ -78,11 +67,23 @@
         <!-- <img id = "postImg" src="<%= post.photo_url %>"/> -->
       </div>
           <div class = "myItemsButtons">
+            <td><form method="POST" action="myItems/<%= post.id %>/edit" >
+              <input type="submit" value="Edit" class="btn btn-outline-primary">
+              </form>
+
+
+
             <td><form method="POST" action="myItems/<%= post.id %>/delete" >
               <input type="submit" value="Delete" class="btn btn-outline-danger">
-            <input type = "button" value="<%= post.id %>">
-            <input id = editButton type="button" value="EDIT">
+            </form>
+
+              <input type = "button" value="<%= post.id %>">
+
+
+
+
             <input id = markAsSold type="button" value="MARK AS SOLD">
+
           </div>
         <footer>
           <p><%= ("$" + post.price) %></p>
