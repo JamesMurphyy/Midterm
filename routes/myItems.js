@@ -86,7 +86,7 @@ module.exports = (db) => {
     // delete post[postId]
   // })
 
-  router.post('/:postId/edit' , (req, res) => {
+  router.get('/:postId/edit' , (req, res) => {
     const postId = req.params.postId
     const user = req.session.user;
     const query = `SELECT * FROM posts WHERE vendor_id = $1 AND posts.id = $2 ORDER BY created_at DESC;`

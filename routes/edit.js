@@ -22,7 +22,7 @@ module.exports = (db) => {
       });
   });
 
-  router.post(`/:postId`, (req, res) => {
+  router.post(`edit/:postId`, (req, res) => {
     const user = req.session.user;
 
       const updatePosts = function(posts) {
