@@ -60,6 +60,7 @@
       <h3>My Posts</h3>
     </div>
     <% for (let post of posts) { %>
+      <% if (post.active === true) { %>
     <div id = "textbox">
       <div class = "postInfo">
         <p id = "postTitle"> <%= post.title %></p>
@@ -90,7 +91,43 @@
         </footer>
     </div>
     <% } %>
+    <% } %>
+
+
   </div>
+
+  <div class="SoldItems">
+
+    <div>
+      <h3>SoldItems</h3>
+    </div>
+    <% for (let post of posts){ %>
+      <% if (post.active === false) { %>
+    <div id = "textbox">
+      <div class = "postInfo">
+        <p id = "postTitle"> <%= post.title %></p>
+        <p id = "postDescription"> <%= post.description %></p>
+        <!-- <img id = "postImg" src="<%= post.photo_url %>"/> -->
+      </div>
+          <div class = "myItemsButtons">
+
+            <td><form method="POST" action="myItems/<%= post.id %>/delete" >
+              <input type="submit" value="Delete" class="btn btn-outline-danger">
+            </form>
+              <input type = "button" value="<%= post.id %>">
+
+
+          </div>
+        <footer>
+          <p><%= ("$" + post.price) %></p>
+        </footer>
+    </div>
+
+    <% } %>
+    <% } %>
+
+  </div>
+
 </main>
 <%- include('partials/_footer') %>
 
