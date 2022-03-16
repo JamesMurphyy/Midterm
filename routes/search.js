@@ -8,7 +8,7 @@ module.exports = (db) => {
     const params = [((req.body.minPrice)), ((req.body.maxPrice))];
     db.query(sql, params)
     .then(data => {
-      const user = req.session.userId;
+      const user = req.session.user;
       const templateVars = {
          posts: data.rows,
          user: user
@@ -19,3 +19,4 @@ module.exports = (db) => {
   });
   return router;
 };
+7
