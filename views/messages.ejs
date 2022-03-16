@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<body>
+  <script> window.author = "<%= user['name'] %>" </script>
+  <header class="header">
+    <%- include('partials/_header') %>
+  </header>
+  <div class="chat-container">
+    <div class="chat-header">
+      <div class="logo">
+        <i class="fab fa-rocketchat fa-2x"></i>
+        <h3 class="h3"> TacoChat </h3>
+      </div>
+      <p id="your-name"> <%= user['name'] %> </p>
+    </div>
+
+    <!------------------------------CHAT BOXES------------------------------->
+    <div class="chat-section">
+      <div class="main-wrapper">
+        <div class="chat-content">
+          <div class="message">
+          </div>
+        </div>
+
+        <!---------------------------MESSAGE BOX----------------------------------->
+        <form class="msg-text">
+          <input type="text" name="msg" id="msg" placeholder="Type a message here..." autocomplete="off">
+          <button id="btn-send">
+            <i class="fas fa-car-side"> Send </i>
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!------------------------------FOOTER----------------------------->
+  <footer class="footer">
+    <%- include('partials/_footer') %>
+  </footer>
+</body>
+
+</html>
