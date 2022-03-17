@@ -38,8 +38,11 @@
             <p class="post_title">
               <%= post.title %>
             </p>
-            <img class="item_img" src="<%= post.photo_url %>" alt="description:<%= post.description %> "
+            <img class="item_img" src="<%= post.photo_url %>" alt="<%= post.item_description %>"
               id="<%= post.id %>" />
+
+
+
 
             <!-- The Modal -->
             <footer class="item_footer">
@@ -54,7 +57,7 @@
       <div id="myModal" class="modal">
         <span class="close">&times;</span>
         <img class="modal-content" id="img01" />
-        <div id="caption">
+        <div id="caption" >
         </div>
         <form method='POST' action='/favourites' id="AddToFavourites" class="myItemsButtons">
           <input type="submit" value="Favourites">

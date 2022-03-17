@@ -64,8 +64,8 @@
     <div id = "textbox">
       <div class = "postInfo">
         <p id = "postTitle"> <%= post.title %></p>
-        <p id = "postDescription"> <%= post.description %></p>
-        <!-- <img id = "postImg" src="<%= post.photo_url %>"/> -->
+        <p id = "postDescription"> <%= post.item_description %></p>
+        <img id = "postImg" src="<%= post.photo_url %>"/>
       </div>
           <div class = "myItemsButtons">
             <td><form method="POST" action="myItems/<%= post.id %>/sold" >

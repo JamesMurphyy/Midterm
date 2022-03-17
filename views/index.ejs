@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="/styles/main.css" type="text/css" />
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
     <link rel="stylesheet" href="/styles/myItems.css" type="text/css" />
-    <!-- <link rel="stylesheet" href="/styles/popup.css" type="text/css" /> -->
+    <link rel="stylesheet" href="/styles/popup.css" type="text/css" />
 
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
     <script type="text/javascript" src="/scripts/app.js"></script>
@@ -34,14 +34,15 @@
           <button type="submit" value="submit" id="search-submit">Filter</button>
         </form>
       </div>
-      <!-- poted items -->
+      <!-- posted items -->
       <div class="item_grid">
         <% for (let post of posts) { %>
           <div class="item">
             <p class="post_title">
               <%= post.title %>
             </p>
-<img id="<%= post.id %>" class="item_img" src="<%= post.photo_url %>" alt="description:<%= post.description %>" />
+<img id="<%= post.id %>" class="item_img" src="<%= post.photo_url %>" alt="<%= post.item_description %>" />
+
             <!-- The Modal -->
             <footer class="item_footer">
               <p>
