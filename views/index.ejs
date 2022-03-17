@@ -13,6 +13,21 @@
 
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
     <script type="text/javascript" src="/scripts/app.js"></script>
+
+
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+    integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous"> -->
+
+
+    <!----------------------------------SOCKET IO--------------------------------->
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/vendor/jquery-3.0.0.js"></script>
+    <script> let socket = io(); </script>
+    <script src="/scripts/app.js"></script>
+
+
+
+
   </head>
   <%- include('partials/_header') %>
     <main>
@@ -63,7 +78,8 @@
             <form id="AddToFavourites" method="POST" action="/favourites/<%= posts.id %>">
               <input type="submit" value="Favourites" class="btn btn-outline-danger">
             </form>
-            <input id=messageButton type="button" value="Send Message">
+            <button class="btn btn-primary message-owner" type="button"
+                  id="<%= posts.id %>">Message Seller</button>
         </div>
       </div>
     </main>
