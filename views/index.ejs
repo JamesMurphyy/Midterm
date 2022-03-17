@@ -9,14 +9,13 @@
     <link rel="stylesheet" href="/styles/main.css" type="text/css" />
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
     <link rel="stylesheet" href="/styles/myItems.css" type="text/css" />
-    <!-- <link rel="stylesheet" href="/styles/popup.css" type="text/css" /> -->
+    <link rel="stylesheet" href="/styles/popup.css" type="text/css" />
 
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
     <script type="text/javascript" src="/scripts/app.js"></script>
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
-    integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-
+      integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 
     <!----------------------------------SOCKET IO--------------------------------->
     <script src="/socket.io/socket.io.js"></script>
@@ -24,17 +23,14 @@
     <script> let socket = io(); </script>
     <script src="/scripts/app.js"></script>
 
-
-
-
   </head>
   <%- include('partials/_header') %>
     <main>
       <div class="body-header">
         <label id="description_text">
-          <p></p>
-          <p> </p>
-          <h3></h3>
+          <p>Buy and Sell<< /p>
+              <p> </p>
+              <h3>Popular categories</h3>
         </label>
       </div>
       <!-- filter form -->
@@ -55,7 +51,8 @@
             <p class="post_title">
               <%= post.title %>
             </p>
-<img id="<%= post.id %>" class="item_img" src="<%= post.photo_url %>" alt="description:<%= post.description %>" />
+            <img id="<%= post.id %>" class="item_img" src="<%= post.photo_url %>"
+              alt="Description: <%= post.item_description %>" />
             <!-- The Modal -->
             <footer class="item_footer">
               <p>
@@ -76,8 +73,7 @@
             <form id="AddToFavourites" method="POST" action="/favourites/<%= posts.id %>">
               <input type="submit" value="Favourites" class="btn btn-outline-danger">
             </form>
-            <button class="btn btn-primary message-owner" type="button"
-                  id="<%= posts.id %>">Message Seller</button>
+            <button class="btn btn-primary message-owner" type="button" id="<%= posts.id %>">Message Seller</button>
         </div>
       </div>
     </main>

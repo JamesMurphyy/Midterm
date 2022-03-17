@@ -1,3 +1,4 @@
+
 // Client facing scripts here
 $(() => {
 
@@ -30,13 +31,11 @@ $(() => {
     console.log("testtyy2222");
     modal.style.display = "none";
   };
-
-///
 });
 
-$(function() {
+$(function () {
   let socket = io();
-  $('.msg-text').submit(function(e) {
+  $('.msg-text').submit(function (e) {
     let timeNow = new Date().toLocaleString();
     e.preventDefault();
     socket.emit('chat message', { msg: $('#msg').val(), author: window.author });
@@ -49,12 +48,12 @@ $(function() {
               </div>
               <div class="message-time">
                 ${timeNow}
-              </div>`)
+              </div>`);
     $('#msg').val('');
     return false;
-  })
+  });
 
-  socket.on('new message', function(msg) {
+  socket.on('new message', function (msg) {
     let timeNow = new Date().toLocaleString();
     $('.message').append(`<div class="message-row other-message">
           <div class="message-title">
@@ -66,15 +65,15 @@ $(function() {
           <div class="message-time">
             ${timeNow}
               </div>
-        </div>`)
+        </div>`);
     return false;
   });
 
   // click event linking to message the seller
-  $('.message-owner').click(function() {
-    const owner_id = $(this).attr("id")
-    const roomName = `room${owner_id}`
-    window.location.replace("http://localhost:8080/message")
+  $('.message-owner').click(function () {
+    const owner_id = $(this).attr("id");
+    const roomName = `room${owner_id}`;
+    window.location.replace("http://localhost:8080/message");
     socket.emit('room', { room: roomName });
-  })
+  });
 });
