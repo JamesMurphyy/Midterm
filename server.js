@@ -16,6 +16,11 @@ const dbParams = require("./lib/db.js");
 const db = new Pool(dbParams);
 db.connect();
 
+
+
+
+
+
 // Load the logger first so all (static) HTTP requests are logged to STDOUT
 // 'dev' = Concise output colored by response status for development use.
 //         The :status token will be colored red for server error codes, yellow for client error codes, cyan for redirection codes, and uncolored for all other codes.
@@ -93,6 +98,44 @@ app.get("/home", (req, res) => {
   res.redirect("/");
 });
 
-app.listen(PORT, () => {
+// app.listen(PORT, () => {
+//   console.log(`Example app listening on port ${PORT}`);
+// });
+
+
+
+ ///
+const http = require('http').createServer(app);
+const io = require('socket.io')(http);
+
+io.on('connection', socket => {
+  console.log('A new user connected');
+  socket.on('room', (room) => {
+    socket.join(room);
+    io.to(room).emit('hi');
+  });
+
+  socket.on('chat message', (msg) => {
+    socket.broadcast.emit('new message', msg);
+  });
+});
+
+const messagesRoutes = require("./routes/messages");
+app.use("/messages", messagesRoutes(db));
+
+//message form route
+app.get('/message', function(req, res) {
+  const user = req.session.user
+  console.log(user)
+
+  if (!user.name) {
+    res.status(403).send('<h1>Please make sure you are logged in! Click here to redirect back to  <a href= "/login" > the login page </a> or here to <a href= "/register" > register. </h1>');
+  } else {
+    res.render("message", { user: user });
+  }
+});
+
+http.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
 });
+///

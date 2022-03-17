@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Message</title>
+
+  <!---------------------Meta Information-------------------------->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=10">
+
+  <!---------------------CSS and icons-------------------------->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+    integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+  <link rel="stylesheet" href="/styles/chat.css" type="text/css" />
+  <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+
+  <!------------------------SOCKET IO----------------------------->
+  <script src="/socket.io/socket.io.js"></script>
+  <script src = "https://cdn.socket.io/socket.io-3.0.0.js"></script>
+  <script src="/vendor/jquery-3.0.0.js"></script>
+  <script> let socket = io(); </script>
+  <script src="/scripts/app.js"></script>
+  <link rel="stylesheet" href="/styles/messages.css" type="text/css" />
+
+</head>
+<%- include('partials/_header') %>
+
+<body>
+  <div id = "messageContainer">
+  <script> window.author = "<%= user.name %>" </script>
+  <header class="header">
+  </header>
+  <div class="chat-container">
+    <div class="chat-header">
+      <div class="logo">
+        <i class="fab fa-rocketchat fa-2x"></i>
+        <h3 class="h3"> TacoChat </h3>
+      </div>
+      <p id="your-name"> <%= user.name %> </p>
+    </div>
+
+    <!------------------------------CHAT BOXES------------------------------->
+    <div class="chat-section">
+      <div class="main-wrapper">
+        <div class="chat-content">
+          <div class="message">
+          </div>
+        </div>
+
+        <!---------------------------MESSAGE BOX----------------------------------->
+        <form class="msg-text">
+          <input type="text" name="msg" id="msg" placeholder="Type a message here..." autocomplete="off">
+          <button id="btn-send">
+            <i class="fas fa-car-side"> Send </i>
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+<!-- <div id = "message-container"></div>
+<form id = "form">
+  <label for ="message-input"> Message </label>
+  <input type = "text" id = "message-input">
+  <button type = "submit" id = "send-button"> Send</button>
+  <label for "room-input">Room</label>
+  <input type= "text" id = "room-input">
+  <button type = "button" id = "room-button"> Join</button>
+</form> -->
+  <!------------------------------FOOTER----------------------------->
+  <footer class="footer">
+    <%- include('partials/_footer') %>
+  </footer>
+</div>
+</body>
+
+</html>
