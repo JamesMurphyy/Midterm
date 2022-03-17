@@ -1,17 +1,20 @@
+<link rel="stylesheet" href="/styles/index.css" type="text/css" />
+
+
 <header>
   <nav class="nav_container">
     <a href="/home"><img class="logo" src="Capture.JPG" alt="Platform logo"> </img></a>
 
     <div class="options">
-      <a class="nav-item nav-link" href="/home">Home</a>
+      <a class="homeButton" href="/home">Home</a>
 
 
     </div>
 
     <% if(user){ %>
-      <a class="nav-item nav-link" href="/favourites">Favourites</a>
-      <a class="nav-item nav-link" href="/myItems">My Items</a>
-      <a href="/message">Conversations</a>
+      <a class="favouritesButton" href="/favourites">Favourites</a>
+      <a class="myItemsButton" href="/myItems">My Items</a>
+      <a class = "messageButton" href="/message">Community</a>
       <%= `Logged in As: ` + user['name'] %>
         <form action="/logout" method="POST">
           <button type="submit" class="btn btn-dark btn-sm">Sign-Out</button>

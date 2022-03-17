@@ -1,0 +1,49 @@
+.underHeader {
+  colour: blue;
+}
+
+.body-header {
+  background-image: url("/images/laura-chouette-lYFWRIwOj9c-unsplash.png") ;
+  height: 500px;
+  background-position-y: center;
+}
+
+#min-price {
+  border: 3px solid black;
+}
+
+#max-price {
+  border: 3px solid black;
+}
+
+.homeButton {
+  padding-left: 14em;
+}
+
+
+.item_footer {
+  background: #00000026;
+  width: 100%;
+  text-align: center;
+  height: 20%;
+}
+
+.item_footer p {
+  font-weight: bold;
+  margin-top: 12px;
+}
+
+.post_title {
+  background: white;
+  width: 100%;
+  text-align: center;
+  height: 20%;
+
+  margin-top: 0px;
+  margin-bottom: 0px;
+  display: flex;
+    justify-content: center;
+    align-items: center;
+  border-top-left-radius: inherit;
+  border-top-right-radius: inherit;
+}

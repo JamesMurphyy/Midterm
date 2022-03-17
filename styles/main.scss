@@ -7,7 +7,7 @@ header {
   // display:flex;
   justify-content: space-evenly;
   padding: 1em 0;
-  background-color: rgb(87, 175, 251);
+  background-color: #f8ead7;
 }
 
 .logo{
@@ -54,18 +54,41 @@ div.item-grid{
 }
 
 .item {
-
   border: solid #20381f;
-
   border-radius: 10px;
-  background-color: lightblue;
+  background-color: #ebe5e0;
+  height: 200px;
+  width: inherit;
+  margin-top: 10px;
+  display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    align-content: stretch;
+    
+}
+
+.item_grid{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap:2em;
+  margin: 1em;
+  justify-content: center;
+}
+.item_img{
+  width:10em;
+}
+.item{
+}
+
+.item:hover{
+  box-shadow: 0em 0em 1em 9px #0000008f;
 }
 
 body {
   margin: 0;
   padding: 0;
   font-family:Verdana, Geneva, Tahoma;
-  background-color: #d65656;
+  background-color: #f8ead7;
   background-blend-mode: color-burn;
   background-size: cover;
 }

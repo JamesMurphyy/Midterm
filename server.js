@@ -128,7 +128,7 @@ app.get('/message', function(req, res) {
   const user = req.session.user
   console.log(user)
 
-  if (!user.name) {
+  if (!user) {
     res.status(403).send('<h1>Please make sure you are logged in! Click here to redirect back to  <a href= "/login" > the login page </a> or here to <a href= "/register" > register. </h1>');
   } else {
     res.render("message", { user: user });
