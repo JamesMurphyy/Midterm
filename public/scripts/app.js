@@ -35,7 +35,7 @@ $(() => {
 });
 
 $(function() {
-  const socket = io();
+  let socket = io();
   $('.msg-text').submit(function(e) {
     let timeNow = new Date().toLocaleString();
     e.preventDefault();
@@ -78,4 +78,3 @@ $(function() {
     socket.emit('room', { room: roomName });
   })
 });
-
