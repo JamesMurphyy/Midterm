@@ -9,31 +9,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=10">
 
   <!---------------------CSS and icons-------------------------->
-  <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
     integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
   <link rel="stylesheet" href="/styles/chat.css" type="text/css" />
-  <script src="https://kit.fontawesome.com/a076d05399.js"></script> -->
+  <script src="https://kit.fontawesome.com/a076d05399.js"></script>
 
   <!------------------------SOCKET IO----------------------------->
   <script src="/socket.io/socket.io.js"></script>
   <script src = "https://cdn.socket.io/socket.io-3.0.0.js"></script>
   <script src="/vendor/jquery-3.0.0.js"></script>
   <script> let socket = io(); </script>
-  <script defer src="/scripts/app.js"></script>
+  <script src="/scripts/app.js"></script>
   <link rel="stylesheet" href="/styles/messages.css" type="text/css" />
-<link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
-    <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
-    <link rel="stylesheet" href="/styles/main.css" type="text/css" />
-    <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
-    <link rel="stylesheet" href="/styles/myItems.css" type="text/css" />
-    <!-- <link rel="stylesheet" href="/styles/chat.css" type="text/css" /> -->
-    <!-- <link rel="stylesheet" href="/styles/popup.css" type="text/css" /> -->
-
-    <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
-    <script type="text/javascript" src="/scripts/app.js"></script>
-
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
-    integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 
 </head>
 <%- include('partials/_header') %>
@@ -47,9 +34,9 @@
     <div class="chat-header">
       <div class="logo">
         <i class="fab fa-rocketchat fa-2x"></i>
-        <h3 class="h3"> Chat </h3>
+        <h3 class="h3"> TacoChat </h3>
       </div>
-      <p id="your-name"> Your Name: <%= user.name %> </p>
+      <p id="your-name"> <%= user.name %> </p>
     </div>
 
     <!------------------------------CHAT BOXES------------------------------->
@@ -59,6 +46,7 @@
           <div class="message">
           </div>
         </div>
+
         <!---------------------------MESSAGE BOX----------------------------------->
         <form class="msg-text">
           <input type="text" name="msg" id="msg" placeholder="Type a message here..." autocomplete="off">
