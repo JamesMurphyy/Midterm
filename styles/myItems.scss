@@ -1,15 +1,17 @@
 .test {
-  background-color:rgb(250, 174, 174);
+  background-color: #976433;
+background-image: url("https://www.transparenttextures.com/patterns/asfalt-dark.png");
 }
 
 
 .addPost {
   display:grid;
-  margin-top: 10px;
 }
+
 .addPostContent {
-  display:flex;
+  display: flex;
   margin-top: 10px;
+  justify-content: center;
 }
 
 
@@ -24,9 +26,15 @@
   background-color: beige;
   margin-top: 10px;
   padding-right: 10px;
-  border-bottom: solid;
   padding-left: 10px;
   padding-top: 20px;
+  display: flex;
+  align-content: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  width: 70%;
+  justify-self: center;
 }
 
 
@@ -64,8 +72,9 @@
   margin-right: 3px;
 }
 .postInfo {
-  display: inline-flex;
-  flex-direction: row-reverse;
+      flex-direction: column;
+      display: flex;
+      align-items: center;
 }
 #postImg {
   display: flex;
@@ -76,11 +85,38 @@
 #postDescription {
   display: flex;
   flex-direction: row-reverse;
+  font-size: small;
+  font-style: italic;
 }
 #postTitle {
   display: flex;
   flex-direction: row-reverse;
   padding-left: 10px;
-  font-size: small;
+  font-size: large;
 }
 
+.textInputs {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  align-content: stretch;
+  justify-content: center;
+}
+
+.columnName {
+  margin-right: 17px;
+  display: flex;
+  width: 110%;
+  justify-content: space-between;
+}
+
+.soldItems {
+  display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#favouritesTextUnderline {
+  font-size: xxx-large;
+    text-decoration: underline;
+}

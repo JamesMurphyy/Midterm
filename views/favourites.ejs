@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
     <link rel="stylesheet" href="/styles/myItems.css" type="text/css" />
     <link rel="stylesheet" href="/styles/index.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/favourites.css" type="text/css" />
 
 
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
@@ -32,11 +33,12 @@
   <%- include('partials/_header') %>
     <!-- <main style="margin: 1em;"> -->
     <main class="test">
-
+      <div class="body-header">
+        <label id="description_text">
+              <h3 id = "favouritesTextUnderline">Favourites</h3>
+        </label>
+      </div>
       <div class="addPost">
-        <div>
-          <h3>My Favourite Posts</h3>
-        </div>
         <% for (let post of posts) { %>
           <div id="textbox">
             <div class="postInfo">
@@ -44,19 +46,19 @@
                 <%= post.title %>
               </p>
               <p id="postDescription">
-                <%= post.items_description %>
+                <%= post.item_description %>
               </p>
               <img id="postImg" src="<%= post.photo_url %>" />
             </div>
-            <td>
-              <form method="POST" action="favourites/<%= post.id %>/delete">
-                <input type="submit" value="Remove From Favourites" class="btn btn-outline-danger">
-                <!-- <input name="postId" type="hidden" value="<%= post.id %>" class="btn btn-outline-danger"> -->
-              </form>
-              <footer>
-                <p>
-                  <%= ("$" + post.price) %>
-                </p>
+            <p>
+              <%= ("$" + post.price) %>
+            </p>
+            <footer>
+                <td>
+                  <form method="POST" action="favourites/<%= post.id %>/delete">
+                    <input type="submit" value="Remove From Favourites" class="btn btn-outline-danger">
+                    <!-- <input name="postId" type="hidden" value="<%= post.id %>" class="btn btn-outline-danger"> -->
+                  </form>
               </footer>
           </div>
           <% } %>

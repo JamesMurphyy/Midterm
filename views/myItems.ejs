@@ -19,29 +19,41 @@
   <%- include('partials/_header') %>
     <main class="test">
       <div>
-        <h3>Add Posts</h3>
+        <h3 id = "myFavouritesPosts">Add Posts</h3>
       </div>
       <form class="addPostContent" action="/myItems" method="POST">
-        <div class="form-group mb-2">
-
-          <label for="text">title</label>
-          <input class="form-control" type="text" name="title" style="width: 300px; margin: 1em">
-
-          <label for="category">Choose a category:</label>
+        <div class="textInputs">
+          
+          <div>
+            <label for="text">Title:</label>
+            <input class="form-control" type="text" name="title" style="width: 300px; margin: 1em">
+          </div>
+          <div class = columnName>
+          <label for="category">Choose a Category:</label>
           <select name="category">
-            <option value="sport">Sport</option>
-            <option value="fashion">Fashion</option>
-            <option value="electronics">Electronics</option>
+            <option value="Sports Equipment">Sports Equipment</option>
+            <option value="Pets">Pets</option>
+            <option value="Electronics">Electronics</option>
+            <option value="Hair Products">Hair Products</option>
+            <option value="Musical Instruments">Musical Instruments</option>
+            <option value="Books">Books</option>
+            <option value="Automotive">Automotive</option>
           </select>
-
-          <label for="price">price</label>
+        </div>
+        <div>
+          <label for="price">Price: </label>
           <input class="form-control" name="price" style="width: 300px; margin: 1em">
-
-          <label for="item_description">description</label>
+        </div>
+        <div>
+          <label for="item_description">Description: </label>
           <input class="form-control" type="text" name="item_description" style="width: 300px; margin: 1em">
+        </div>
+          <div>
+            <label for="photo_url">Photo Url:</label>
+            <input class="form-control" type="text" name="photo_url" style="width: 300px; margin: 1em">
+          </div>
 
-          <label for="photo_url">photo_url</label>
-          <input class="form-control" type="text" name="photo_url" style="width: 300px; margin: 1em">
+         
 
           <button type="submit" class="btn btn-primary">Submit</button>
         </div>
@@ -49,7 +61,7 @@
 
       <div class="addPost">
         <div>
-          <h3>My Posts</h3>
+          <h3 id = "myFavouritesPosts">My Posts</h3>
         </div>
         <% for (let post of posts) { %>
           <% if (post.active===true) { %>
@@ -58,38 +70,38 @@
                 <p id="postTitle">
                   <%= post.title %>
                 </p>
+                <img id="postImg" src="<%= post.photo_url %>" />
                 <p id="postDescription">
                   <%= post.item_description %>
                 </p>
-                <img id="postImg" src="<%= post.photo_url %>" />
               </div>
-              <div class="myItemsButtons">
-                <td>
-                  <form method="POST" action="myItems/<%= post.id %>/sold">
-                    <input type="submit" value="Mark as Sold" class="btn btn-outline-primary">
-                  </form>
-
-                <td>
-                  <form method="POST" action="myItems/<%= post.id %>/delete">
-                    <input type="submit" value="Delete" class="btn btn-outline-danger">
-                  </form>
-
-
-              </div>
+              <p>
+                <%= ("$" + post.price) %>
+              </p>
               <footer>
-                <p>
-                  <%= ("$" + post.price) %>
-                </p>
+                <div class="myItemsButtons">
+                  <td>
+                    <form method="POST" action="myItems/<%= post.id %>/sold">
+                      <input type="submit" value="Mark as Sold" class="btn btn-outline-primary">
+                    </form>
+  
+                  <td>
+                    <form method="POST" action="myItems/<%= post.id %>/delete">
+                      <input type="submit" value="Delete" class="btn btn-outline-danger">
+                    </form>
+  
+  
+                </div>
               </footer>
             </div>
             <% } %>
               <% } %>
       </div>
 
-      <div class="SoldItems">
+      <div class = "soldItems">
 
         <div>
-          <h3>SoldItems</h3>
+          <h3 id = "myFavouritesPosts" >SoldItems</h3>
         </div>
         <% for (let post of posts){ %>
           <% if (post.active===false) { %>
@@ -103,17 +115,17 @@
                 </p>
                 <img id="postImg" src="<%= post.photo_url %>" />
               </div>
-              <div class="myItemsButtons">
-
-                <td>
-                  <form method="POST" action="myItems/<%= post.id %>/delete">
-                    <input type="submit" value="Delete" class="btn btn-outline-danger">
-                  </form>
-              </div>
+              <p>
+                <%= ("$" + post.price) %>
+              </p>
               <footer>
-                <p>
-                  <%= ("$" + post.price) %>
-                </p>
+                <div class="myItemsButtons">
+  
+                  <td>
+                    <form method="POST" action="myItems/<%= post.id %>/delete">
+                      <input type="submit" value="Delete" class="btn btn-outline-danger">
+                    </form>
+                </div>
               </footer>
             </div>
             <% } %>
