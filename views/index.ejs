@@ -22,20 +22,13 @@
     integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous"> -->
 
 
-    <!----------------------------------SOCKET IO--------------------------------->
-    <script src="/socket.io/socket.io.js"></script>
-    <script src="/vendor/jquery-3.0.0.js"></script>
-    <script> let socket = io(); </script>
-    <script src="/scripts/app.js"></script>
-
   </head>
   <%- include('partials/_header') %>
     <main>
       <div class="body-header">
-        <label id="description_text">
+        <!-- <label id="description_text">
               <h3>Popular categories</h3>
-              <!-- <img src="https://images.unsplash.com/photo-1605086998852-18371cfd9b2e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1974&q=80"> -->
-        </label>
+        </label> -->
       </div>
       <!-- filter form -->
       <div class="div_filter_form">
@@ -56,7 +49,7 @@
               <%= post.title %>
             </p>
             <img id="<%= post.id %>" class="item_img" src="<%= post.photo_url %>"
-              alt="Description: <%= post.item_description %>" />
+              alt="<%= post.item_description %>" />
             <!-- The Modal -->
             <footer class="item_footer">
               <p>
@@ -77,7 +70,6 @@
             <form id="AddToFavourites" method="POST" action="/favourites/<%= posts.id %>">
               <input type="submit" value="Favourites" class="btn btn-outline-danger">
             </form>
-            <button class="btn btn-primary message-owner" type="button" id="<%= posts.id %>">Message Seller</button>
         </div>
       </div>
     </main>

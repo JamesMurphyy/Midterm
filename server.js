@@ -120,10 +120,9 @@ io.on('connection', socket => {
   });
 });
 
-const messagesRoutes = require("./routes/messages");
-app.use("/messages", messagesRoutes(db));
+// const messagesRoutes = require("./routes/messages");
+// app.use("/messages", messagesRoutes(db));
 
-//message form route
 app.get('/message', function(req, res) {
   const user = req.session.user
   console.log(user)

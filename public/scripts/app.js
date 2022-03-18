@@ -39,9 +39,9 @@ $(function () {
     let timeNow = new Date().toLocaleString();
     e.preventDefault();
     socket.emit('chat message', { msg: $('#msg').val(), author: window.author });
-    $('.message').append(`<div class="message-row you-message">
-              <div class="message-title">
-                🚙 <span>${window.author}</span>
+    $('.message').append(`<div class="youMessage">
+              <div class="message-name-you">
+               <span> ${window.author}</span>
               </div>
               <div class="message-text">
                 ${$('#msg').val()}
@@ -55,9 +55,9 @@ $(function () {
 
   socket.on('new message', function (msg) {
     let timeNow = new Date().toLocaleString();
-    $('.message').append(`<div class="message-row other-message">
-          <div class="message-title">
-            🚗 <span> ${msg.author} </span>
+    $('.message').append(`<div class="otherMessage">
+          <div class="message-name-other">
+            <span> ${msg.author} </span>
           </div>
           <div class="message-text">
             ${msg.msg}

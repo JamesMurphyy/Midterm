@@ -3,16 +3,16 @@
 
 <head>
   <title>Message</title>
-  <link rel="stylesheet" href="/styles/index.css" type="text/css" />
-  <!---------------------Meta Information-------------------------->
+
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=10">
 
-  <!---------------------CSS and icons-------------------------->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
-    integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-  <link rel="stylesheet" href="/styles/chat.css" type="text/css" />
-  <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+  <link rel="stylesheet" href="/styles/index.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/myItems.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/main.css" type="text/css" />
+  <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
+  <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
 
   <!------------------------SOCKET IO----------------------------->
   <script src="/socket.io/socket.io.js"></script>
@@ -21,8 +21,6 @@
   <script> let socket = io(); </script>
   <script src="/scripts/app.js"></script>
   <link rel="stylesheet" href="/styles/messages.css" type="text/css" />
-
-  
 
 </head>
 <%- include('partials/_header') %>
@@ -36,9 +34,9 @@
     <div class="chat-header">
       <div class="logo">
         <i class="fab fa-rocketchat fa-2x"></i>
-        <h3 class="h3"> TacoChat </h3>
+        <h3 class="communityChat"> Community Chat </h3>
       </div>
-      <p id="your-name"> <%= user.name %> </p>
+      <p id="your-name"> Your name: <%= user.name %> </p>
     </div>
 
     <!------------------------------CHAT BOXES------------------------------->
@@ -59,20 +57,10 @@
       </div>
     </div>
   </div>
-<!-- <div id = "message-container"></div>
-<form id = "form">
-  <label for ="message-input"> Message </label>
-  <input type = "text" id = "message-input">
-  <button type = "submit" id = "send-button"> Send</button>
-  <label for "room-input">Room</label>
-  <input type= "text" id = "room-input">
-  <button type = "button" id = "room-button"> Join</button>
-</form> -->
   <!------------------------------FOOTER----------------------------->
-  <footer class="footer">
-    <%- include('partials/_footer') %>
-  </footer>
 </div>
 </body>
-
+<footer class="footer">
+  <%- include('partials/_footer') %>
+</footer>
 </html>
