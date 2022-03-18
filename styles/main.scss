@@ -17,7 +17,6 @@ header {
   white-space: nowrap;
   max-width: 10em;
   background-blend-mode:multiply;
-
 }
 
 .nav_container{
@@ -35,9 +34,6 @@ header {
   margin-left:-15em;
 }
 
-// .navbar-nav{
-
-// }
 
 div.item-grid{
   display: inline-grid;
@@ -73,10 +69,9 @@ div.item-grid{
   margin: 1em;
   justify-content: center;
 }
+
 .item_img{
   width:10em;
-}
-.item{
 }
 
 .item:hover{
@@ -91,28 +86,6 @@ body {
   background-blend-mode: color-burn;
   background-size: cover;
 }
-
-
-
-// main {
-// width: 90vw;
-// margin: 0 auto;
-// padding: 30px 20px;
-// }
-
-
-// <<<<<<< HEAD
-// .item:hover {
-//   box-shadow: rgba(2, 8, 20, 0.1) 0px 0.35em 1.175em, rgba(2, 8, 20, 0.08) 0px 0.175em 0.5em;
-//   transform: translateY(-3px) scale(1.05);
-// }
-
-
-// .star-btn:hover {
-//   background-color: gold;
-// =======
-// .star-btn:hover {
-//   background-color: gold;
 
 .page_footer {
   background-color: #333;
