@@ -55,15 +55,15 @@ div.item-grid{
 
 .item {
   border: solid #20381f;
-  border-radius: 10px;
-  background-color: #ebe5e0;
-  height: 200px;
-  width: inherit;
-  margin-top: 10px;
-  display: flex;
-    flex-flow: column wrap;
+    border-radius: 10px;
+    background-color: #ebe5e0;
+    /* height: 200px; */
+    width: inherit;
+    margin-top: 10px;
+    display: flex;
+    /* flex-flow: column wrap; */
     align-items: center;
-    align-content: stretch;
+    flex-direction: column;
     
 }
 
