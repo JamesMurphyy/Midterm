@@ -10,7 +10,7 @@ module.exports = (db) => {
     return db
       .query(`SELECT * FROM users WHERE email = $1;`, [email])
       .then((result) => {
-        console.log("test:", result.rows[0]);
+        // console.log("test:", result.rows[0]);
         return result.rows[0];
       })
       .catch((err) => {
@@ -31,19 +31,18 @@ module.exports = (db) => {
       });
   };
   router.post('/', (req, res) => {
+
     const { email, password } = req.body;
     return login(email, password)
 
       .then(user => {
-        console.log(user);
+
         if (!user) {
-          res.status(401).send(`<html><body>Sorry! Please <a href="/login">login</a> or <a href="/register">register</a> to access this page.</body></html>\n`);
-          return;
+          return res.status(401).send(`<html><body>Sorry! Please <a href="/login">login</a> or <a href="/register">register</a> to access this page.</body></html>\n`);
         }
         console.log("logging user", user);
         req.session.user = ({ name: user.name, email: user.email, id: user.id });
         res.redirect('/');
-        // res.send({user: {name: user.name, email: user.email, id: user.id}})
       })
       .catch(e => {
         console.log(e);
@@ -58,6 +57,5 @@ module.exports = (db) => {
     };
     res.render('login', templateVars);
   });
-
   return router;
 };

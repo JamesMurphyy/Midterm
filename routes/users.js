@@ -16,13 +16,8 @@ module.exports = (db) => {
         res.json({ users });
       })
       .catch(err => {
-        res
-          .status(500)
-          .json({ error: err.message });
+        res.status(500).json({ error: err.message });
       });
   });
-
-  
-
   return router;
 };

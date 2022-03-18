@@ -24,22 +24,18 @@ module.exports = (db) => {
 
     console.log(user);
     return addUser(user)
-    .then(returnedUser => { //refers to line 8
-      if (!returnedUser) {
-        res.send({error: "error"});
-        return;
-      }
-      req.session.user = ({name: user.name, email: user.email, id: returnedUser.id});
-
-      // console.log("wkwkwkwk", returnedUser)
-      // console.log("llllllllllllllll", req.session)
-      res.redirect("/")
-
-    })
-    .catch(e => {
-      console.log(e)
-      res.send(e)
-    });
+      .then(returnedUser => { //refers to line 8
+        if (!returnedUser) {
+          res.send({ error: "error" });
+          return;
+        }
+        req.session.user = ({ name: user.name, email: user.email, id: returnedUser.id });
+        res.redirect("/");
+      })
+      .catch(e => {
+        console.log(e);
+        res.send(e);
+      });
   });
 
   router.get("/", (req, res) => {
